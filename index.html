@@ -29,6 +29,7 @@
     font-family: 'Crimson Pro', Georgia, serif;
     font-size: 18px;
     line-height: 1.6;
+    overflow-x: hidden;
   }
 
   /* NAV */
@@ -872,6 +873,79 @@
     margin-top: 0.8rem;
   }
 
+  /* OPERACAO / CLIENTE */
+  .ops-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 2rem;
+  }
+  .ops-card {
+    background: var(--surface);
+    padding: 1.5rem;
+  }
+  .ops-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.8rem;
+  }
+  .ops-card p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 0.8rem;
+  }
+  .ops-list {
+    list-style: none;
+  }
+  .ops-list li {
+    font-size: 0.88rem;
+    color: var(--text);
+    opacity: 0.85;
+    padding: 0.28rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .ops-list li::before {
+    content: '-> ';
+    color: var(--accent);
+    font-family: 'DM Mono', monospace;
+  }
+  .ops-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+  }
+  .ops-table th,
+  .ops-table td {
+    border: 1px solid var(--border);
+    padding: 0.8rem;
+    vertical-align: top;
+    text-align: left;
+  }
+  .ops-table th {
+    color: var(--accent);
+    background: var(--surface2);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .ops-table td {
+    color: var(--muted);
+    background: var(--surface);
+  }
+  .call-script {
+    background: #080808;
+    border: 1px solid var(--border);
+    padding: 1.2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    line-height: 1.65;
+    color: var(--text);
+    overflow-x: auto;
+    margin: 1rem 0 2rem;
+  }
+
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -886,16 +960,385 @@
   .mt2 { margin-top: 2rem; }
   .mt3 { margin-top: 3rem; }
 
+  @media (max-width: 1024px) {
+    body { font-size: 17px; }
+
+    nav {
+      padding: 0 1rem;
+      scroll-snap-type: x proximity;
+    }
+    nav a {
+      padding: 1rem 0.75rem;
+      scroll-snap-align: start;
+    }
+    .nav-brand {
+      padding: 0.9rem 1rem 0.9rem 0;
+      margin-right: 0.5rem;
+    }
+
+    section {
+      padding: 4rem 1.5rem;
+    }
+    .hero {
+      padding: 4rem 1.5rem 3rem;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .tech-layout,
+    .ops-grid,
+    .aquisicao-channels,
+    .renda-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .study-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .cheat-grid {
+      grid-template-columns: 1fr;
+    }
+    .stack-table,
+    .ops-table {
+      font-size: 0.68rem;
+    }
+    .stack-table th,
+    .stack-table td,
+    .ops-table th,
+    .ops-table td {
+      padding: 0.65rem;
+    }
+  }
+
   @media (max-width: 768px) {
-    .demo-kpis { grid-template-columns: repeat(2, 1fr); }
-    .demo-charts { grid-template-columns: 1fr; }
-    .plan-split { grid-template-columns: 1fr; }
-    .tech-layout { grid-template-columns: 1fr; }
-    .study-grid { grid-template-columns: 1fr; }
-    .cheat-grid { grid-template-columns: 1fr; }
-    .modelo-grid { grid-template-columns: 1fr; }
-    .aquisicao-channels { grid-template-columns: 1fr; }
-    .renda-grid { grid-template-columns: 1fr; }
+    body { font-size: 16px; }
+
+    nav {
+      padding: 0 0.75rem;
+      gap: 0;
+    }
+    .nav-brand {
+      font-size: 1rem;
+      position: sticky;
+      left: 0;
+      z-index: 2;
+      background: rgba(13,13,13,0.98);
+    }
+    nav a {
+      font-size: 0.64rem;
+      padding: 0.95rem 0.65rem;
+    }
+
+    section {
+      padding: 3.25rem 1rem;
+    }
+    .hero {
+      padding: 3.5rem 1rem 2.75rem;
+    }
+    .hero::before {
+      width: 280px;
+      height: 280px;
+      top: -90px;
+      right: -130px;
+    }
+    .hero-label {
+      align-items: flex-start;
+      font-size: 0.62rem;
+      line-height: 1.45;
+      gap: 0.6rem;
+      margin-bottom: 1.1rem;
+    }
+    .hero-label::before {
+      width: 1.2rem;
+      margin-top: 0.55rem;
+    }
+    .hero h1 {
+      font-size: clamp(3rem, 15vw, 4.8rem);
+      margin-bottom: 1rem;
+    }
+    .hero-sub {
+      font-size: 1rem;
+      max-width: 100%;
+    }
+    .hero-stats {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      padding-top: 0;
+      margin-top: 2rem;
+    }
+    .hero-stats > div {
+      background: var(--surface);
+      padding: 1rem;
+    }
+    .hero-stat-value {
+      font-size: 1.45rem;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 11vw, 3rem);
+    }
+    h3 {
+      font-size: 1.25rem;
+    }
+    .section-desc {
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      max-width: 100%;
+    }
+
+    .tabs,
+    .tech-tabs {
+      margin-left: -1rem;
+      margin-right: -1rem;
+      padding-left: 1rem;
+      scrollbar-width: none;
+    }
+    .tabs::-webkit-scrollbar,
+    .tech-tabs::-webkit-scrollbar {
+      display: none;
+    }
+    .tab-btn,
+    .tech-tab-btn {
+      font-size: 0.64rem;
+      padding: 0.85rem 0.9rem;
+    }
+
+    .services-grid,
+    .demo-charts,
+    .plan-split,
+    .tech-layout,
+    .ops-grid,
+    .study-grid,
+    .cheat-grid,
+    .modelo-grid,
+    .aquisicao-channels,
+    .renda-grid {
+      grid-template-columns: 1fr;
+    }
+    .service-card,
+    .plan-card,
+    .tech-card,
+    .ops-card,
+    .study-card,
+    .cheat-card,
+    .modelo-card,
+    .channel-card,
+    .renda-card {
+      padding: 1.25rem;
+    }
+    .service-name,
+    .renda-valor {
+      overflow-wrap: anywhere;
+    }
+    .service-includes li {
+      align-items: flex-start;
+    }
+    .service-excludes span {
+      overflow-wrap: anywhere;
+    }
+
+    .stack-table,
+    .stack-table thead,
+    .stack-table tbody,
+    .stack-table tr,
+    .stack-table th,
+    .stack-table td,
+    .ops-table,
+    .ops-table thead,
+    .ops-table tbody,
+    .ops-table tr,
+    .ops-table th,
+    .ops-table td {
+      display: block;
+      width: 100%;
+    }
+    .stack-table,
+    .ops-table {
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.72rem;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .stack-table thead,
+    .ops-table thead {
+      display: none;
+    }
+    .stack-table tr,
+    .ops-table tr {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0.2rem 0;
+    }
+    .stack-table tr:last-child,
+    .ops-table tr:last-child {
+      border-bottom: none;
+    }
+    .stack-table td,
+    .ops-table td {
+      border: none;
+      border-bottom: 1px solid var(--border);
+      padding: 0.85rem 1rem 0.85rem 7.8rem;
+      position: relative;
+      min-height: 3rem;
+    }
+    .stack-table td:last-child,
+    .ops-table td:last-child {
+      border-bottom: none;
+    }
+    .stack-table td::before,
+    .ops-table td::before {
+      position: absolute;
+      left: 1rem;
+      top: 0.85rem;
+      width: 6.2rem;
+      color: var(--accent);
+      font-size: 0.58rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: normal;
+    }
+    .stack-table td:nth-child(1)::before { content: 'Ferramenta'; }
+    .stack-table td:nth-child(2)::before { content: 'Dominar'; }
+    .stack-table td:nth-child(3)::before { content: 'Usa em'; }
+    .stack-table td:nth-child(4)::before { content: 'Evitar'; }
+    .ops-table td:nth-child(1)::before { content: 'Item'; }
+    .ops-table td:nth-child(2)::before { content: 'Como funciona'; }
+    .ops-table td:nth-child(3)::before { content: 'Quando usar'; }
+    .ops-table td:nth-child(4)::before { content: 'Risco'; }
+
+    .cheat-card pre {
+      margin-left: -0.25rem;
+      margin-right: -0.25rem;
+      padding: 0.85rem;
+      font-size: 0.62rem;
+      line-height: 1.5;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .demo-box {
+      padding: 1rem;
+      margin-left: -0.25rem;
+      margin-right: -0.25rem;
+    }
+    .demo-header {
+      align-items: flex-start;
+    }
+    .demo-title {
+      line-height: 1.4;
+    }
+    .demo-kpis {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .demo-chart {
+      min-height: 150px;
+      height: auto;
+    }
+    .pie-chart {
+      flex-wrap: wrap;
+    }
+
+    .proposta-topbar {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.8rem;
+      padding: 1rem;
+    }
+    .copy-btn {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+    }
+    .proposta-body {
+      padding: 1.2rem;
+      font-size: 0.9rem;
+    }
+    .proposta-body .field {
+      display: inline;
+      line-height: 1.9;
+      overflow-wrap: anywhere;
+    }
+
+    .roadmap {
+      padding-left: 1.8rem;
+    }
+    .roadmap::before {
+      left: 0.45rem;
+    }
+    .roadmap-week::before {
+      left: -1.6rem;
+    }
+    .week-tasks li {
+      align-items: flex-start;
+    }
+    .stat-real,
+    .renda-aviso,
+    .aviso {
+      padding: 1rem;
+      overflow-wrap: anywhere;
+    }
+  }
+
+  @media (max-width: 420px) {
+    body { font-size: 15.5px; }
+
+    nav {
+      padding-left: 0.6rem;
+    }
+    .nav-brand {
+      display: none;
+    }
+    nav a {
+      font-size: 0.6rem;
+      padding: 0.85rem 0.55rem;
+    }
+
+    section {
+      padding: 2.75rem 0.85rem;
+    }
+    .hero {
+      padding: 3rem 0.85rem 2.25rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.7rem, 17vw, 4.1rem);
+    }
+    .hero-stats {
+      grid-template-columns: 1fr;
+    }
+    .hero-stats > div {
+      padding: 0.85rem;
+    }
+
+    .service-card,
+    .plan-card,
+    .tech-card,
+    .ops-card,
+    .study-card,
+    .cheat-card,
+    .modelo-card,
+    .channel-card,
+    .renda-card {
+      padding: 1rem;
+    }
+    .stack-table td,
+    .ops-table td {
+      padding-left: 1rem;
+      padding-top: 2.1rem;
+    }
+    .stack-table td::before,
+    .ops-table td::before {
+      top: 0.65rem;
+      width: auto;
+    }
+    .cheat-card pre {
+      font-size: 0.58rem;
+    }
   }
 </style>
 </head>
@@ -906,6 +1349,7 @@
   <a href="#mapa" class="active">Mapa</a>
   <a href="#stack">Técnico</a>
   <a href="#colinha">Colinha</a>
+  <a href="#operacao">Operação</a>
   <a href="#servicos">Serviços</a>
   <a href="#modelo">Modelo</a>
   <a href="#aquisicao">Aquisição</a>
@@ -1379,9 +1823,263 @@ Página 3 · Operação
   </div>
 </section>
 
+<!-- OPERACAO / CLIENTE -->
+<section id="operacao">
+  <div class="section-label">03 · Operação</div>
+  <h2>REUNIÃO, DADOS, CUSTOS & ESCALA</h2>
+  <p class="section-desc">A parte técnica entrega o dashboard. Esta parte faz o cliente confiar, passar os dados certos, pagar sem susto e continuar depois da primeira entrega.</p>
+
+  <div class="stat-real">
+    <strong>Realidade dos R$30k+:</strong> é factível, mas é incomum para solo iniciante. R$30k/mês bruto aparece quando você tem nicho, 4–8 clientes recorrentes, tickets acima de R$3k, processo de entrega repetível e alguém ajudando na operação. Sem isso, vira teto de tempo.
+  </div>
+
+  <div class="ops-grid">
+    <div class="ops-card">
+      <h3>0–12K: FREELA BOM</h3>
+      <p>Você ainda vende execução. O cliente compra dashboard, análise, limpeza e automação.</p>
+      <ul class="ops-list">
+        <li>Projetos de R$600–4k</li>
+        <li>Retainers de R$800–2k</li>
+        <li>Você faz venda, entrega e suporte</li>
+        <li>Risco principal: escopo aberto demais</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>12–30K: CONSULTOR</h3>
+      <p>Você vende clareza de gestão e operação de dados. O dashboard vira parte da solução, não o produto inteiro.</p>
+      <ul class="ops-list">
+        <li>Retainers de R$2k–5k</li>
+        <li>Projetos de R$5k–10k</li>
+        <li>Nicho específico: clínica, varejo, logística, financeiro</li>
+        <li>Processo documentado e templates reaproveitáveis</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>30K+: MINI CONSULTORIA</h3>
+      <p>Você precisa de alavanca: assistente/freela, playbooks, recorrência e oferta mais estratégica.</p>
+      <ul class="ops-list">
+        <li>6 clientes a R$5k/mês ou 10 clientes a R$3k/mês</li>
+        <li>Você para de vender hora e vende sistema de gestão</li>
+        <li>Contrata apoio para limpeza, layout, documentação ou suporte</li>
+        <li>Risco principal: virar funcionário de vários clientes</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>COMPORTAMENTO EM REUNIÃO</h3>
+  <div class="ops-grid">
+    <div class="ops-card">
+      <h3>ANTES DA CALL</h3>
+      <ul class="ops-list">
+        <li>Pesquise o negócio: site, Instagram, Google Maps, setor</li>
+        <li>Leve 1 demo visual parecido com o setor do cliente</li>
+        <li>Prepare 6 perguntas, não uma apresentação de 30 slides</li>
+        <li>Defina objetivo: diagnóstico, proposta ou acesso aos dados</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>DURANTE A CALL</h3>
+      <ul class="ops-list">
+        <li>Fale menos que o cliente nos primeiros 15 minutos</li>
+        <li>Não prometa tempo real antes de ver a fonte dos dados</li>
+        <li>Repita a dor com suas palavras para confirmar entendimento</li>
+        <li>Feche próximo passo concreto: envio de base, proposta ou kickoff</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>DEPOIS DA CALL</h3>
+      <ul class="ops-list">
+        <li>Mande resumo por escrito no mesmo dia</li>
+        <li>Liste o que está incluído e o que está fora</li>
+        <li>Peça base de amostra antes de preço fechado grande</li>
+        <li>Nunca comece sem aceite por escrito e 30–50% de entrada</li>
+      </ul>
+    </div>
+  </div>
+
+  <pre class="call-script"><code>Roteiro de primeira reunião:
+1. "Hoje eu quero entender como vocês tomam decisão e onde o dado trava."
+2. "Quais indicadores você olha toda semana ou todo mês?"
+3. "De onde esses números saem hoje: Excel, sistema, ERP, banco, WhatsApp?"
+4. "Quem vai usar o dashboard e que decisão essa pessoa precisa tomar?"
+5. "O que seria uma entrega bem-sucedida daqui a 30 dias?"
+6. "Para eu te passar preço justo, preciso ver uma amostra da base ou entender a conexão."
+7. "O próximo passo é: você me envia [amostra/acesso], eu valido viabilidade e te devolvo escopo + prazo + valor."</code></pre>
+
+  <h3>COMO O CLIENTE PASSA OS DADOS</h3>
+  <table class="ops-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Como funciona</th>
+        <th>Quando usar</th>
+        <th>Risco</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Excel/CSV por arquivo</td>
+        <td>Cliente envia planilha ou exportação do sistema. Você importa no Power BI e monta o modelo.</td>
+        <td>Primeiro projeto, diagnóstico, PME sem TI.</td>
+        <td>Não é tempo real. Se mudarem nome de coluna ou formato, quebra. Combine padrão de arquivo.</td>
+      </tr>
+      <tr>
+        <td>Excel no OneDrive/SharePoint</td>
+        <td>Arquivo fica em nuvem. Power BI consegue sincronizar e atualizar com mais estabilidade.</td>
+        <td>Dashboard simples que precisa atualizar todo dia ou algumas vezes ao dia.</td>
+        <td>Se o cliente substituir o arquivo em vez de atualizar o mesmo item, a conexão pode quebrar.</td>
+      </tr>
+      <tr>
+        <td>Google Sheets</td>
+        <td>Power BI conecta via conector/web ou você usa script intermediário para tratar a planilha.</td>
+        <td>Cliente pequeno que já usa Google Workspace.</td>
+        <td>Permissões e alterações manuais podem quebrar atualização. Precisa governança mínima.</td>
+      </tr>
+      <tr>
+        <td>Banco SQL local</td>
+        <td>Cliente cria usuário somente leitura. Se o banco não está na nuvem, instala-se gateway no ambiente dele.</td>
+        <td>BI Pro, retainer, ERP com banco acessível.</td>
+        <td>Precisa TI do cliente. Nunca use senha pessoal. Peça usuário read-only e liberação formal.</td>
+      </tr>
+      <tr>
+        <td>Banco SQL cloud/API</td>
+        <td>Power BI ou Python acessa a fonte pela internet com credenciais ou token.</td>
+        <td>Cliente com sistema moderno, CRM, e-commerce, API ou Azure SQL.</td>
+        <td>Limite de API, token expirando, custo de cloud e necessidade de documentação técnica.</td>
+      </tr>
+      <tr>
+        <td>.sql enviado pelo cliente</td>
+        <td>Geralmente é script de consulta, schema ou dump. Ajuda, mas não é operação ideal para refresh contínuo.</td>
+        <td>Entender estrutura, criar ambiente de teste ou validar consulta.</td>
+        <td>Não trate .sql como "conexão". Para atualizar, você precisa fonte viva: banco, arquivo em nuvem ou API.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>ATUALIZAÇÃO: TEMPO REAL OU NÃO?</h3>
+  <div class="ops-grid">
+    <div class="ops-card">
+      <h3>MANUAL</h3>
+      <p>Cliente atualiza planilha e você ou ele clica em atualizar. Bom para começar e validar valor.</p>
+      <ul class="ops-list">
+        <li>Custo baixo</li>
+        <li>Ideal para projeto Starter</li>
+        <li>Não venda como monitoramento em tempo real</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>AGENDADA</h3>
+      <p>Power BI Service atualiza em horários definidos. É o padrão profissional para PME.</p>
+      <ul class="ops-list">
+        <li>Pro: até 8 atualizações/dia</li>
+        <li>Premium por usuário: até 48 atualizações/dia</li>
+        <li>Fonte local exige gateway</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>QUASE TEMPO REAL</h3>
+      <p>Usa DirectQuery, streaming, API ou banco cloud. Só venda quando houver necessidade real e stack pronta.</p>
+      <ul class="ops-list">
+        <li>Mais caro e mais sensível a performance</li>
+        <li>Exige fonte confiável e permissões</li>
+        <li>Normalmente não é necessário para PME no início</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>CUSTOS MENSAIS DE FERRAMENTAS</h3>
+  <table class="ops-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Como funciona</th>
+        <th>Quando usar</th>
+        <th>Risco</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Power BI Desktop</td>
+        <td>Gratuito para criar relatórios no seu computador.</td>
+        <td>Sempre. É sua ferramenta base de desenvolvimento.</td>
+        <td>Não resolve compartilhamento profissional sozinho.</td>
+      </tr>
+      <tr>
+        <td>Power BI Pro</td>
+        <td>R$ 80,20 por usuário/mês, pago anualmente, sem impostos, na página oficial Microsoft Brasil em 06/06/2026.</td>
+        <td>Publicar, compartilhar e colaborar com relatórios. Padrão para consultoria pequena.</td>
+        <td>Cada usuário que publica/consome conteúdo compartilhado normalmente precisa licença Pro, salvo cenários de capacidade.</td>
+      </tr>
+      <tr>
+        <td>Power BI Premium por usuário</td>
+        <td>R$ 137,40 por usuário/mês, pago anualmente, sem impostos, na página oficial Microsoft Brasil em 06/06/2026.</td>
+        <td>Modelos maiores, recursos avançados e refresh mais frequente.</td>
+        <td>Não compre sem necessidade. Para PME, Pro costuma bastar no início.</td>
+      </tr>
+      <tr>
+        <td>Gateway local</td>
+        <td>Software gratuito instalado em máquina/servidor do cliente para Power BI acessar fonte interna.</td>
+        <td>Banco SQL, pasta local ou fonte que não está exposta na internet.</td>
+        <td>A máquina precisa ficar ligada, com internet e permissão correta. Ideal envolver TI.</td>
+      </tr>
+      <tr>
+        <td>GitHub / VS Code / Python / PostgreSQL local</td>
+        <td>Stack gratuita para portfólio, scripts, documentação e ambiente de estudo.</td>
+        <td>Seu trabalho técnico e demos.</td>
+        <td>Não coloque credenciais ou dados reais de cliente em repositório público.</td>
+      </tr>
+      <tr>
+        <td>Hospedagem/portfólio</td>
+        <td>Vercel/GitHub Pages podem atender no início em plano gratuito, dependendo do uso.</td>
+        <td>Mostrar portfólio, cases e proposta.</td>
+        <td>Não hospede dados sensíveis de cliente. Use prints anonimizados.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="stat-real">
+    <strong>Regra comercial:</strong> licença e infraestrutura do cliente devem ser pagas pelo cliente. O seu preço cobre serviço, entrega, configuração e suporte. Se você embutir licença no seu bolso, seu retainer vira armadilha.
+  </div>
+
+  <div class="stat-real">
+    <strong>Fonte de custos:</strong> preços e limites consultados na página oficial da Microsoft Brasil em 06/06/2026. Antes de fechar proposta, revalidar em <a href="https://www.microsoft.com/pt-br/power-platform/products/power-bi/pricing" target="_blank" rel="noopener" style="color:var(--accent)">microsoft.com/power-bi/pricing</a>.
+  </div>
+
+  <h3>O QUE ENSINAR PARA O CLIENTE</h3>
+  <div class="ops-grid">
+    <div class="ops-card">
+      <h3>DADO</h3>
+      <ul class="ops-list">
+        <li>Não renomear colunas sem avisar</li>
+        <li>Não misturar total, observação e dado na mesma tabela</li>
+        <li>Manter padrão de data, moeda e categoria</li>
+        <li>Registrar quem é responsável pela atualização da fonte</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>DASHBOARD</h3>
+      <ul class="ops-list">
+        <li>Como usar filtros sem distorcer leitura</li>
+        <li>O que cada KPI significa e qual decisão ele apoia</li>
+        <li>Como identificar última atualização</li>
+        <li>Como reportar erro com print e contexto</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>PROCESSO</h3>
+      <ul class="ops-list">
+        <li>Pedido novo entra em backlog, não por WhatsApp solto</li>
+        <li>Ajuste pequeno é diferente de nova fonte ou novo modelo</li>
+        <li>Call mensal serve para decisão, não para redesenhar tudo</li>
+        <li>Novas demandas fora do pacote viram proposta adicional</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <!-- SERVIÇOS -->
 <section id="servicos">
-  <div class="section-label">03 · Catálogo</div>
+  <div class="section-label">04 · Catálogo</div>
   <h2>SERVIÇOS & PACOTES</h2>
   <p class="section-desc">Serviços produtizados — escopo fechado, entrega definida. Sem "hora aberta" no início.</p>
 
@@ -1690,7 +2388,7 @@ Página 3 · Operação
 
 <!-- MODELO DE NEGÓCIO -->
 <section id="modelo">
-  <div class="section-label">04 · Modelo</div>
+  <div class="section-label">05 · Modelo</div>
   <h2>COMO O NEGÓCIO FUNCIONA</h2>
   <p class="section-desc">Sequência de produto — de onde vem a receita e como ela cresce.</p>
 
@@ -1745,7 +2443,7 @@ Página 3 · Operação
 
 <!-- AQUISIÇÃO -->
 <section id="aquisicao">
-  <div class="section-label">05 · Canais</div>
+  <div class="section-label">06 · Canais</div>
   <h2>COMO CONSEGUIR CLIENTES</h2>
   <p class="section-desc">Sem rede de indicações. Do zero. Estratégias ordenadas por esforço e taxa de retorno real.</p>
 
@@ -1805,7 +2503,7 @@ Página 3 · Operação
 
 <!-- TEMPLATE PROPOSTA -->
 <section id="proposta">
-  <div class="section-label">06 · Template</div>
+  <div class="section-label">07 · Template</div>
   <h2>PROPOSTA COMERCIAL</h2>
   <p class="section-desc">Copie, adapte e envie. Preencha os campos destacados em verde.</p>
 
@@ -1860,7 +2558,7 @@ Página 3 · Operação
 
 <!-- ROADMAP -->
 <section id="roadmap">
-  <div class="section-label">07 · Execução</div>
+  <div class="section-label">08 · Execução</div>
   <h2>ROADMAP 90 DIAS</h2>
   <p class="section-desc">Do básico ao primeiro cliente pagante. Semana a semana — sem etapas em paralelo que não sejam necessárias.</p>
 
@@ -1938,7 +2636,7 @@ Página 3 · Operação
 
 <!-- PROJEÇÃO DE RENDA -->
 <section id="renda">
-  <div class="section-label">08 · Projeção</div>
+  <div class="section-label">09 · Projeção</div>
   <h2>RENDA PROJETADA</h2>
   <p class="section-desc">Cenário realista — não otimista. Baseado em execução consistente, não perfeita.</p>
 
