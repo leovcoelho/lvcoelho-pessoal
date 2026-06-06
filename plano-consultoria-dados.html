@@ -1,0 +1,2055 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plano de Consultoria · Dados</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #141414;
+    --surface2: #1a1a1a;
+    --border: #2a2a2a;
+    --accent: #c8f135;
+    --accent2: #f1c835;
+    --text: #e8e4dc;
+    --muted: #888;
+    --danger: #ff4d4d;
+    --tier1: #3a3a3a;
+    --tier2: #1e2a1a;
+    --tier3: #1a2030;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13,13,13,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  nav::-webkit-scrollbar { display: none; }
+  .nav-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    padding: 1rem 1.5rem 1rem 0;
+    border-right: 1px solid var(--border);
+    margin-right: 1rem;
+    white-space: nowrap;
+  }
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 1.2rem 1rem;
+    white-space: nowrap;
+    transition: color 0.2s;
+    border-bottom: 2px solid transparent;
+  }
+  nav a:hover, nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* SECTIONS */
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  section:last-child { border-bottom: none; }
+
+  /* HERO */
+  .hero {
+    max-width: 100%;
+    padding: 5rem 2rem 4rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(200,241,53,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; }
+  .hero-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .hero-label::before {
+    content: '';
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background: var(--accent);
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 600px;
+    font-style: italic;
+    margin-bottom: 2rem;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+  .hero-stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .hero-stat-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.05em;
+    color: var(--text);
+  }
+  .hero-stat-value.green { color: var(--accent); }
+
+  /* SECTION HEADERS */
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    letter-spacing: 0.03em;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+  h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.05em;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+  .section-desc {
+    color: var(--muted);
+    font-size: 1rem;
+    margin-bottom: 3rem;
+    font-style: italic;
+    max-width: 600px;
+  }
+
+  /* AVISO BOX */
+  .aviso {
+    background: rgba(255,77,77,0.07);
+    border: 1px solid rgba(255,77,77,0.25);
+    border-left: 3px solid var(--danger);
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 3rem;
+    font-size: 0.95rem;
+  }
+  .aviso strong { color: var(--danger); font-style: normal; }
+  .aviso p { color: var(--text); opacity: 0.85; }
+
+  /* CATÁLOGO DE SERVIÇOS */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .service-card {
+    background: var(--surface);
+    padding: 2rem;
+    position: relative;
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+  .service-card:hover { background: var(--surface2); }
+  .service-tier {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+  .tier-entrada { background: rgba(255,255,255,0.05); color: var(--muted); }
+  .tier-medio { background: rgba(200,241,53,0.1); color: var(--accent); }
+  .tier-recorrente { background: rgba(241,200,53,0.1); color: var(--accent2); }
+
+  .service-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.3rem;
+  }
+  .service-tagline {
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 1.2rem;
+  }
+  .service-price {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.4rem;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+  }
+  .service-price-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+  }
+  .service-includes {
+    list-style: none;
+    margin-bottom: 1.5rem;
+  }
+  .service-includes li {
+    font-size: 0.9rem;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    color: var(--text);
+    opacity: 0.85;
+  }
+  .service-includes li::before {
+    content: '→';
+    color: var(--accent);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+  }
+  .service-excludes {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    padding-top: 0.8rem;
+  }
+  .service-excludes span {
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+  .service-excludes span::before { content: '✕  '; color: var(--danger); }
+
+  /* DEMO DASHBOARD MOCKUP */
+  .demo-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    margin-top: 3rem;
+  }
+  .demo-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .demo-dots { display: flex; gap: 5px; }
+  .demo-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+  }
+  .demo-dot:nth-child(1) { background: #ff5f57; }
+  .demo-dot:nth-child(2) { background: #febc2e; }
+  .demo-dot:nth-child(3) { background: #28c840; }
+  .demo-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+  .demo-kpis {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    margin-bottom: 1px;
+  }
+  .demo-kpi {
+    background: var(--surface2);
+    padding: 1rem;
+    text-align: center;
+  }
+  .demo-kpi-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: var(--accent);
+  }
+  .demo-kpi-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .demo-charts {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1px;
+    background: var(--border);
+  }
+  .demo-chart {
+    background: var(--surface2);
+    padding: 1rem;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+  }
+  .demo-chart-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.8rem;
+  }
+  .bar-chart { display: flex; align-items: flex-end; gap: 4px; flex: 1; }
+  .bar {
+    flex: 1;
+    background: var(--accent);
+    opacity: 0.7;
+    border-radius: 2px 2px 0 0;
+    transition: opacity 0.2s;
+  }
+  .bar:hover { opacity: 1; }
+  .pie-chart {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .pie-visual {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: conic-gradient(var(--accent) 0% 45%, var(--accent2) 45% 72%, #555 72% 100%);
+  }
+  .pie-legend { display: flex; flex-direction: column; gap: 0.3rem; }
+  .pie-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--muted);
+  }
+  .pie-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* MODELO DE NEGÓCIO */
+  .modelo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 2rem;
+  }
+  .modelo-card {
+    background: var(--surface);
+    padding: 2rem;
+  }
+  .modelo-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--border);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .modelo-card h3 { margin-bottom: 0.8rem; }
+  .modelo-card p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .modelo-card ul {
+    list-style: none;
+    margin-top: 0.8rem;
+  }
+  .modelo-card ul li {
+    font-size: 0.9rem;
+    padding: 0.2rem 0;
+    color: var(--text);
+    opacity: 0.8;
+  }
+  .modelo-card ul li::before { content: '— '; color: var(--accent); }
+
+  /* AQUISIÇÃO */
+  .aquisicao-channels {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 2rem;
+  }
+  .channel-card {
+    background: var(--surface);
+    padding: 1.8rem;
+  }
+  .channel-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+  .channel-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.3rem;
+  }
+  .channel-effort {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  .channel-card p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+  .channel-actions {
+    list-style: none;
+  }
+  .channel-actions li {
+    font-size: 0.85rem;
+    padding: 0.3rem 0;
+    border-top: 1px solid var(--border);
+    color: var(--text);
+    opacity: 0.8;
+  }
+  .channel-actions li::before { content: '↳ '; color: var(--accent); font-family: monospace; }
+
+  .stat-real {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--accent);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .stat-real strong { color: var(--accent); }
+
+  /* TEMPLATE PROPOSTA */
+  .proposta-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .proposta-topbar {
+    background: var(--surface2);
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .proposta-topbar-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .copy-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 0.3rem 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .proposta-body {
+    padding: 2rem;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .proposta-body .field {
+    background: rgba(200,241,53,0.04);
+    border: 1px dashed rgba(200,241,53,0.2);
+    padding: 0.1rem 0.4rem;
+    color: var(--accent);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+  }
+  .proposta-section {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .proposta-section-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+
+  /* ROADMAP */
+  .roadmap {
+    position: relative;
+    padding-left: 2.5rem;
+  }
+  .roadmap::before {
+    content: '';
+    position: absolute;
+    left: 0.7rem;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+  .roadmap-week {
+    position: relative;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.5s ease both;
+  }
+  .roadmap-week::before {
+    content: '';
+    position: absolute;
+    left: -1.9rem;
+    top: 0.4rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--border);
+  }
+  .roadmap-week.done::before { background: var(--accent); border-color: var(--accent); }
+  .roadmap-week.current::before { background: var(--accent2); border-color: var(--accent2); box-shadow: 0 0 0 4px rgba(241,200,53,0.15); }
+  .week-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+  }
+  .week-label.accent { color: var(--accent2); }
+  .week-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+  }
+  .week-tasks {
+    list-style: none;
+  }
+  .week-tasks li {
+    font-size: 0.9rem;
+    color: var(--muted);
+    padding: 0.2rem 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+  .week-tasks li::before {
+    content: '□';
+    color: var(--border);
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+  .week-tasks li.done::before { content: '■'; color: var(--accent); }
+  .week-tasks li.done { color: var(--text); opacity: 0.6; text-decoration: line-through; }
+
+  /* RENDA PROJETADA */
+  .renda-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 2rem;
+  }
+  .renda-card {
+    background: var(--surface);
+    padding: 2rem;
+    text-align: center;
+  }
+  .renda-periodo {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+  .renda-valor {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 0.03em;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+  }
+  .renda-card.highlight .renda-valor { color: var(--accent); }
+  .renda-composicao {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .renda-aviso {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 0.8rem 1.2rem;
+    text-align: center;
+    letter-spacing: 0.05em;
+  }
+
+  /* TABS */
+  .tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
+    overflow-x: auto;
+  }
+  .tab-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* MAPA / TRILHA TECNICA */
+  .plan-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 2rem;
+  }
+  .plan-card {
+    background: var(--surface);
+    padding: 2rem;
+  }
+  .plan-card-label,
+  .tech-card-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+  .plan-card h3 { color: var(--text); }
+  .plan-card p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  .plan-card ul,
+  .tech-list {
+    list-style: none;
+  }
+  .plan-card li,
+  .tech-list li {
+    font-size: 0.9rem;
+    color: var(--text);
+    opacity: 0.85;
+    padding: 0.25rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .plan-card li::before,
+  .tech-list li::before {
+    content: '-> ';
+    color: var(--accent);
+    font-family: 'DM Mono', monospace;
+  }
+  .tech-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
+    overflow-x: auto;
+  }
+  .tech-tab-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .tech-tab-btn:hover { color: var(--text); }
+  .tech-tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .tech-tab-panel { display: none; }
+  .tech-tab-panel.active { display: block; }
+  .tech-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 2rem;
+  }
+  .tech-card {
+    background: var(--surface);
+    padding: 1.6rem;
+  }
+  .tech-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+  .tech-card p {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  .stack-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+  }
+  .stack-table th,
+  .stack-table td {
+    border: 1px solid var(--border);
+    padding: 0.8rem;
+    vertical-align: top;
+    text-align: left;
+  }
+  .stack-table th {
+    color: var(--accent);
+    background: var(--surface2);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .stack-table td {
+    color: var(--muted);
+    background: var(--surface);
+  }
+  .study-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+  .study-card {
+    background: var(--surface);
+    padding: 1.4rem;
+  }
+  .study-week {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 0.5rem;
+  }
+  .study-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+  .study-card p {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .cheat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .cheat-card {
+    background: var(--surface);
+    padding: 1.5rem;
+    min-width: 0;
+  }
+  .cheat-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.8rem;
+  }
+  .cheat-card pre {
+    background: #080808;
+    border: 1px solid var(--border);
+    padding: 1rem;
+    overflow-x: auto;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    line-height: 1.55;
+    color: var(--text);
+  }
+  .cheat-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted);
+    margin-top: 0.8rem;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* UTILS */
+  .mono { font-family: 'DM Mono', monospace; font-size: 0.85rem; }
+  .muted { color: var(--muted); }
+  .accent { color: var(--accent); }
+  .accent2 { color: var(--accent2); }
+  .mt1 { margin-top: 1rem; }
+  .mt2 { margin-top: 2rem; }
+  .mt3 { margin-top: 3rem; }
+
+  @media (max-width: 768px) {
+    .demo-kpis { grid-template-columns: repeat(2, 1fr); }
+    .demo-charts { grid-template-columns: 1fr; }
+    .plan-split { grid-template-columns: 1fr; }
+    .tech-layout { grid-template-columns: 1fr; }
+    .study-grid { grid-template-columns: 1fr; }
+    .cheat-grid { grid-template-columns: 1fr; }
+    .modelo-grid { grid-template-columns: 1fr; }
+    .aquisicao-channels { grid-template-columns: 1fr; }
+    .renda-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">DATA·PLAN</div>
+  <a href="#mapa" class="active">Mapa</a>
+  <a href="#stack">Técnico</a>
+  <a href="#colinha">Colinha</a>
+  <a href="#servicos">Serviços</a>
+  <a href="#modelo">Modelo</a>
+  <a href="#aquisicao">Aquisição</a>
+  <a href="#proposta">Proposta</a>
+  <a href="#roadmap">Roadmap 90d</a>
+  <a href="#renda">Renda</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Plano de Negócio + Trilha Técnica · Consultoria de Dados · v1.1</div>
+    <h1>DO BÁSICO AO<br><span>PRIMEIRO</span><br>CLIENTE</h1>
+    <p class="hero-sub">Modelo de consultoria freelance em dados — serviços definidos, stack técnica mínima, precificação real e estratégia de aquisição sem rede.</p>
+    <div class="hero-stats">
+      <div>
+        <span class="hero-stat-label">Meta mês 3</span>
+        <span class="hero-stat-value green">R$ 1.5–3k</span>
+      </div>
+      <div>
+        <span class="hero-stat-label">Meta mês 6</span>
+        <span class="hero-stat-value">R$ 3–6k</span>
+      </div>
+      <div>
+        <span class="hero-stat-label">Meta mês 12</span>
+        <span class="hero-stat-value">R$ 6–12k</span>
+      </div>
+      <div>
+        <span class="hero-stat-label">Stack base</span>
+        <span class="hero-stat-value green">BI+SQL</span>
+      </div>
+      <div>
+        <span class="hero-stat-label">Ticket alvo</span>
+        <span class="hero-stat-value">R$ 2.500</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAPA DE USO -->
+<section id="mapa">
+  <div class="section-label">00 · Mapa</div>
+  <h2>DUAS CAMADAS DO PLANO</h2>
+  <p class="section-desc">Use este documento como um sistema: a camada de negócio diz o que vender; a camada técnica diz o que estudar e como entregar sem se perder.</p>
+
+  <div class="plan-split">
+    <div class="plan-card">
+      <div class="plan-card-label">Camada 1 · Negócio</div>
+      <h3>O QUE JÁ EXISTE</h3>
+      <p>Esta parte é o plano comercial: serviços, preços, aquisição, proposta, roadmap e renda. Ela responde: "como eu consigo cliente e transformo isso em carreira?".</p>
+      <ul>
+        <li>Serviços & pacotes: o que vender e o que excluir</li>
+        <li>Modelo de negócio: entrada, upsell e recorrência</li>
+        <li>Aquisição: LinkedIn, abordagem direta e plataformas</li>
+        <li>Proposta: texto pronto para mandar ao cliente</li>
+        <li>Roadmap e renda: metas de execução e revisão</li>
+      </ul>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-card-label">Camada 2 · Técnica</div>
+      <h3>O QUE ENTRA AGORA</h3>
+      <p>Esta parte é a trilha cirúrgica. Ela responde: "exatamente o que eu preciso saber para entregar cada pacote sem prometer coisa demais?".</p>
+      <ul>
+        <li>Stack mínima por serviço: Power BI, SQL, DAX, Power Query, Python</li>
+        <li>Checklist de entrega: briefing, base, modelo, dashboard, documentação</li>
+        <li>Colinhas práticas: SQL, DAX, Python, layout e perguntas de cliente</li>
+        <li>Curso focado: semanas de estudo com saída prática</li>
+        <li>Limites de escopo: o que não aceitar no início</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="stat-real">
+    <strong>Regra de uso:</strong> antes de vender um pacote, confira a aba técnica dele. Se você não consegue reproduzir o exemplo com dados fictícios, ainda não venda como projeto pago. Use como treino ou pro bono controlado.
+  </div>
+</section>
+
+<!-- STACK TECNICA -->
+<section id="stack">
+  <div class="section-label">01 · Técnica</div>
+  <h2>STACK & CURSO CIRÚRGICO</h2>
+  <p class="section-desc">Stack mínima para entregar os pacotes do plano. O objetivo não é estudar tudo: é aprender o suficiente para resolver problemas simples de PME com qualidade.</p>
+
+  <table class="stack-table">
+    <thead>
+      <tr>
+        <th>Ferramenta</th>
+        <th>Você precisa dominar</th>
+        <th>Usa em</th>
+        <th>Não precisa agora</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Excel / Google Sheets</td>
+        <td>Tabela limpa, filtros, PROCV/PROCX, tabela dinâmica, datas, validação e exportação CSV/XLSX.</td>
+        <td>Starter, diagnóstico, cliente pequeno.</td>
+        <td>VBA complexo, macros frágeis, planilhas gigantes.</td>
+      </tr>
+      <tr>
+        <td>Power BI Desktop</td>
+        <td>Importar dados, Power Query, relacionamentos, medidas DAX, layout, filtros, publicação e refresh.</td>
+        <td>Dashboard Starter, BI Pro, Retainer.</td>
+        <td>Visual customizado raro, arquitetura enterprise, Fabric avançado.</td>
+      </tr>
+      <tr>
+        <td>Power Query / M</td>
+        <td>Tipos de dados, remover duplicadas, tratar nulos, dividir/mesclar colunas, append, merge e parâmetros simples.</td>
+        <td>Limpeza de planilhas e atualização recorrente.</td>
+        <td>M avançado escrito do zero.</td>
+      </tr>
+      <tr>
+        <td>DAX</td>
+        <td>SUM, COUNTROWS, DISTINCTCOUNT, DIVIDE, CALCULATE, FILTER, ALL, DATEADD, SAMEPERIODLASTYEAR.</td>
+        <td>KPIs, comparação mensal, metas, margem, ranking.</td>
+        <td>Time intelligence muito sofisticado, otimização profunda.</td>
+      </tr>
+      <tr>
+        <td>SQL / PostgreSQL</td>
+        <td>SELECT, WHERE, GROUP BY, JOIN, CTE, window function, criação de tabelas e visão analítica.</td>
+        <td>BI Pro, análise pontual, ETL.</td>
+        <td>DBA, tuning pesado, cluster, replicação.</td>
+      </tr>
+      <tr>
+        <td>Python / Pandas</td>
+        <td>Ler Excel/CSV/API simples, limpar colunas, tratar datas, agrupar, exportar e carregar em banco ou Sheets.</td>
+        <td>Pipeline ETL e análise pontual.</td>
+        <td>Machine learning, deep learning, app completo.</td>
+      </tr>
+      <tr>
+        <td>GitHub + documentação</td>
+        <td>README, versionar scripts, registrar decisões, checklist de entrega, changelog e prints do antes/depois.</td>
+        <td>Portfólio, case, projeto técnico.</td>
+        <td>CI/CD completo, arquitetura DevOps.</td>
+      </tr>
+      <tr>
+        <td>LGPD / Segurança</td>
+        <td>Acesso mínimo, dados anonimizados quando possível, autorização de uso de case e cuidado com dados sensíveis.</td>
+        <td>Todo projeto real.</td>
+        <td>Virar consultor jurídico. Use contrato simples e peça orientação quando houver dado sensível.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tech-tabs">
+    <button class="tech-tab-btn active" onclick="switchTechTab('starter', event)">BI Starter</button>
+    <button class="tech-tab-btn" onclick="switchTechTab('pro', event)">BI Pro</button>
+    <button class="tech-tab-btn" onclick="switchTechTab('etltech', event)">ETL</button>
+    <button class="tech-tab-btn" onclick="switchTechTab('analise', event)">Análise</button>
+    <button class="tech-tab-btn" onclick="switchTechTab('retainertech', event)">Retainer</button>
+  </div>
+
+  <div id="tech-starter" class="tech-tab-panel active">
+    <div class="tech-layout">
+      <div class="tech-card">
+        <div class="tech-card-label">Saber</div>
+        <h3>BI STARTER</h3>
+        <ul class="tech-list">
+          <li>Transformar uma planilha bagunçada em tabela única</li>
+          <li>Criar calendário, KPIs e filtros simples</li>
+          <li>Montar 1 a 3 páginas com leitura rápida</li>
+          <li>Explicar o dashboard em vídeo de 5 minutos</li>
+        </ul>
+      </div>
+      <div class="tech-card">
+        <div class="tech-card-label">Entregar</div>
+        <h3>SAÍDA MÍNIMA</h3>
+        <ul class="tech-list">
+          <li>Arquivo PBIX ou link publicado</li>
+          <li>PDF com prints e resumo dos KPIs</li>
+          <li>Guia de atualização: onde colar a planilha nova</li>
+          <li>1 rodada de ajuste e lista do que ficou fora</li>
+        </ul>
+      </div>
+      <div class="tech-card">
+        <div class="tech-card-label">Exemplo</div>
+        <h3>COMÉRCIO</h3>
+        <p>Base esperada: data, id_pedido, produto, categoria, quantidade, valor_total, canal. Métricas: receita, pedidos, ticket médio, crescimento vs mês anterior, top produtos e receita por canal.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="tech-pro" class="tech-tab-panel">
+    <div class="tech-layout">
+      <div class="tech-card">
+        <div class="tech-card-label">Saber</div>
+        <h3>BI PRO</h3>
+        <ul class="tech-list">
+          <li>Modelagem estrela: fato + dimensões</li>
+          <li>SQL com JOIN e agregações confiáveis</li>
+          <li>DAX com CALCULATE, ALL e comparação temporal</li>
+          <li>Refresh, permissões e documentação do modelo</li>
+        </ul>
+      </div>
+      <div class="tech-card">
+        <div class="tech-card-label">Entregar</div>
+        <h3>SAÍDA MÍNIMA</h3>
+        <ul class="tech-list">
+          <li>Até 6 páginas: visão geral, vendas, clientes, produtos, financeiro, operacional</li>
+          <li>Dicionário de dados e diagrama do modelo</li>
+          <li>Lista de medidas DAX documentadas</li>
+          <li>Treinamento de 1h gravado ou resumido</li>
+        </ul>
+      </div>
+      <div class="tech-card">
+        <div class="tech-card-label">Exemplo</div>
+        <h3>VAREJO COM 3 FONTES</h3>
+        <p>Fontes: vendas.xlsx, clientes.csv, produtos.csv. Modelo: fato_vendas ligada a dim_cliente, dim_produto e dim_calendario. Entrega foco em margem, recorrência, categorias e metas.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="tech-etltech" class="tech-tab-panel">
+    <div class="tech-layout">
+      <div class="tech-card">
+        <div class="tech-card-label">Saber</div>
+        <h3>PIPELINE ETL</h3>
+        <ul class="tech-list">
+          <li>Python com pandas, requests e sqlalchemy</li>
+          <li>Tratamento de datas, nulos, duplicados e nomes de colunas</li>
+          <li>Carga em PostgreSQL ou Google Sheets</li>
+          <li>Agendamento simples e log de execução</li>
+        </ul>
+      </div>
+      <div class="tech-card">
+        <div class="tech-card-label">Entregar</div>
+        <h3>SAÍDA MÍNIMA</h3>
+        <ul class="tech-list">
+          <li>Script Python organizado em etapas</li>
+          <li>README com como rodar e como trocar credenciais</li>
+          <li>Tabela final pronta para Power BI</li>
+          <li>Log simples: linhas lidas, linhas gravadas, erros</li>
+        </ul>
+      </div>
+      <div class="tech-card">
+        <div class="tech-card-label">Exemplo</div>
+        <h3>PLANILHA + API</h3>
+        <p>Todo dia: ler vendas do Google Sheets, buscar cotação/frete em API simples, limpar campos, gravar fato_vendas_tratada no PostgreSQL e atualizar dashboard.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="tech-analise" class="tech-tab-panel">
+    <div class="tech-layout">
+      <div class="tech-card">
+        <div class="tech-card-label">Saber</div>
+        <h3>ANÁLISE PONTUAL</h3>
+        <ul class="tech-list">
+          <li>Traduzir pergunta vaga em hipótese testável</li>
+          <li>EDA com SQL ou pandas</li>
+          <li>Diferenciar correlação de causa</li>
+          <li>Contar uma história com 3 a 5 insights acionáveis</li>
+        </ul>
+      </div>
+      <div class="tech-card">
+        <div class="tech-card-label">Entregar</div>
+        <h3>SAÍDA MÍNIMA</h3>
+        <ul class="tech-list">
+          <li>Relatório PDF ou Notion com pergunta, método e achados</li>
+          <li>Gráficos claros e tabela de suporte</li>
+          <li>Recomendação prática: fazer, parar, investigar</li>
+          <li>Reunião de 30 min com próximos passos</li>
+        </ul>
+      </div>
+      <div class="tech-card">
+        <div class="tech-card-label">Exemplo</div>
+        <h3>PERGUNTA BOA</h3>
+        <p>"Quais produtos têm alto faturamento, baixa margem e alto estoque?" é melhor que "analise minhas vendas". A entrega vira decisão de compra, desconto e reposição.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="tech-retainertech" class="tech-tab-panel">
+    <div class="tech-layout">
+      <div class="tech-card">
+        <div class="tech-card-label">Saber</div>
+        <h3>RETAINER BI</h3>
+        <ul class="tech-list">
+          <li>Rotina mensal de atualização e validação</li>
+          <li>Controle de backlog: novas métricas, ajustes, bugs</li>
+          <li>SLA simples: prazo de resposta e limite de horas</li>
+          <li>Changelog do que mudou no dashboard</li>
+        </ul>
+      </div>
+      <div class="tech-card">
+        <div class="tech-card-label">Entregar</div>
+        <h3>SAÍDA MÍNIMA</h3>
+        <ul class="tech-list">
+          <li>Atualizações combinadas no mês</li>
+          <li>Relatório mensal de insights</li>
+          <li>Call de 30 min com decisões sugeridas</li>
+          <li>Registro de demandas fora de escopo para cobrar à parte</li>
+        </ul>
+      </div>
+      <div class="tech-card">
+        <div class="tech-card-label">Exemplo</div>
+        <h3>RITUAL MENSAL</h3>
+        <p>Dia 1: validar base. Dia 2: atualizar dashboard. Dia 3: gerar PDF de insights. Dia 4: call. Durante o mês: até 3 ajustes pequenos já previstos no contrato.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="mt3">CURSO CIRÚRGICO DE 8 SEMANAS</h3>
+  <div class="study-grid">
+    <div class="study-card">
+      <div class="study-week">Semana 1</div>
+      <h3>Planilha limpa</h3>
+      <p>Transforme 3 planilhas bagunçadas em tabelas com cabeçalho único, datas corretas, sem mescla e sem totais no meio.</p>
+    </div>
+    <div class="study-card">
+      <div class="study-week">Semana 2</div>
+      <h3>SQL essencial</h3>
+      <p>Faça SELECT, filtro, GROUP BY, JOIN, CTE e ranking. Saída: 10 consultas respondendo perguntas de venda.</p>
+    </div>
+    <div class="study-card">
+      <div class="study-week">Semana 3</div>
+      <h3>Power Query</h3>
+      <p>Importe Excel/CSV, trate tipos, remova duplicadas, faça merge e append. Saída: base pronta para modelo.</p>
+    </div>
+    <div class="study-card">
+      <div class="study-week">Semana 4</div>
+      <h3>Modelo estrela</h3>
+      <p>Monte fato_vendas, dim_produto, dim_cliente e dim_calendario. Saída: diagrama simples e relacionamentos corretos.</p>
+    </div>
+    <div class="study-card">
+      <div class="study-week">Semana 5</div>
+      <h3>DAX base</h3>
+      <p>Crie receita, pedidos, ticket médio, margem, crescimento mensal e ranking. Saída: 12 medidas reaproveitáveis.</p>
+    </div>
+    <div class="study-card">
+      <div class="study-week">Semana 6</div>
+      <h3>Dashboard</h3>
+      <p>Crie 2 demos: varejo e clínica. Saída: 1 página executiva, 1 analítica, 1 operacional por demo.</p>
+    </div>
+    <div class="study-card">
+      <div class="study-week">Semana 7</div>
+      <h3>Python ETL</h3>
+      <p>Leia planilha, limpe, agregue e grave em CSV/PostgreSQL. Saída: script documentado e reexecutável.</p>
+    </div>
+    <div class="study-card">
+      <div class="study-week">Semana 8</div>
+      <h3>Entrega real</h3>
+      <p>Faça briefing, proposta, escopo, entrega, vídeo e documentação. Saída: case pronto para LinkedIn/portfólio.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COLINHA TECNICA -->
+<section id="colinha">
+  <div class="section-label">02 · Colinha</div>
+  <h2>COLINHA DE ENTREGA</h2>
+  <p class="section-desc">Exemplos curtos para copiar, adaptar e transformar em entrega. O padrão é sempre o mesmo: pergunta de negócio, base limpa, modelo simples, métrica confiável, visual claro.</p>
+
+  <div class="cheat-grid">
+    <div class="cheat-card">
+      <h3>SQL · VENDAS POR MÊS</h3>
+      <pre><code>WITH vendas_mes AS (
+  SELECT
+    date_trunc('month', data_venda)::date AS mes,
+    SUM(valor_total) AS receita,
+    COUNT(DISTINCT id_pedido) AS pedidos
+  FROM fato_vendas
+  WHERE data_venda >= CURRENT_DATE - INTERVAL '12 months'
+  GROUP BY 1
+)
+SELECT
+  mes,
+  receita,
+  pedidos,
+  receita / NULLIF(pedidos, 0) AS ticket_medio,
+  receita - LAG(receita) OVER (ORDER BY mes) AS variacao_receita
+FROM vendas_mes
+ORDER BY mes;</code></pre>
+      <div class="cheat-note">Use para validar números antes de jogar no Power BI. Se o SQL e o dashboard divergem, investigue o modelo.</div>
+    </div>
+
+    <div class="cheat-card">
+      <h3>DAX · MEDIDAS BASE</h3>
+      <pre><code>Receita = SUM(Vendas[valor_total])
+
+Pedidos = DISTINCTCOUNT(Vendas[id_pedido])
+
+Ticket Medio = DIVIDE([Receita], [Pedidos])
+
+Receita Mes Anterior =
+CALCULATE(
+  [Receita],
+  DATEADD(Calendario[Data], -1, MONTH)
+)
+
+Crescimento MoM =
+DIVIDE(
+  [Receita] - [Receita Mes Anterior],
+  [Receita Mes Anterior]
+)</code></pre>
+      <div class="cheat-note">Essas 5 medidas resolvem boa parte de dashboard de vendas. Depois entram margem, meta e ranking.</div>
+    </div>
+
+    <div class="cheat-card">
+      <h3>PYTHON · ETL SIMPLES</h3>
+      <pre><code>import pandas as pd
+from sqlalchemy import create_engine
+
+vendas = pd.read_excel("vendas.xlsx")
+
+vendas.columns = (
+    vendas.columns
+    .str.strip()
+    .str.lower()
+    .str.replace(" ", "_")
+)
+
+vendas["data_venda"] = pd.to_datetime(vendas["data_venda"])
+vendas["valor_total"] = vendas["quantidade"] * vendas["preco_unitario"]
+
+vendas = vendas.drop_duplicates(subset=["id_pedido", "produto"])
+vendas = vendas[vendas["valor_total"] > 0]
+
+engine = create_engine("postgresql+psycopg2://usuario:senha@host:5432/db")
+vendas.to_sql("fato_vendas", engine, if_exists="replace", index=False)</code></pre>
+      <div class="cheat-note">Em cliente real, não deixe senha hardcoded. Use variável de ambiente ou arquivo .env fora do GitHub.</div>
+    </div>
+
+    <div class="cheat-card">
+      <h3>POWER BI · LAYOUT PADRÃO</h3>
+      <pre><code>Página 1 · Visão executiva
+- 4 cards: Receita, Pedidos, Ticket Medio, Crescimento
+- Linha: Receita por mes
+- Barras: Top 10 produtos/categorias
+- Tabela: alertas ou oportunidades
+
+Página 2 · Diagnóstico
+- Filtros por data, canal, produto, vendedor
+- Comparativo mês atual vs mês anterior
+- Ranking e curva ABC
+
+Página 3 · Operação
+- Itens com queda, ruptura, atraso ou baixa margem
+- Ação sugerida para cada grupo</code></pre>
+      <div class="cheat-note">Não comece pelo visual bonito. Primeiro confirme se os números estão certos e se o gestor entende a decisão.</div>
+    </div>
+
+    <div class="cheat-card">
+      <h3>BRIEFING · PERGUNTAS CERTAS</h3>
+      <pre><code>1. Qual decisão você quer tomar melhor todo mês?
+2. Qual indicador hoje dá mais dor de cabeça?
+3. Onde esses dados estão: Excel, sistema, ERP, papel?
+4. Quem vai usar o dashboard e com que frequência?
+5. O que significa "bom resultado" para esse negócio?
+6. Existe meta mensal? Onde ela está registrada?
+7. Quais dados são sensíveis e não podem aparecer?
+8. Quem aprova os números finais antes da entrega?</code></pre>
+      <div class="cheat-note">Se o cliente não sabe responder, o primeiro serviço pode ser diagnóstico + dashboard simples, não BI Pro.</div>
+    </div>
+
+    <div class="cheat-card">
+      <h3>ENTREGA · CHECKLIST FINAL</h3>
+      <pre><code>Antes de entregar:
+[ ] Base limpa e fonte documentada
+[ ] Medidas conferidas contra Excel/SQL
+[ ] Filtros funcionando
+[ ] Páginas com título e data de atualização
+[ ] Dados sensíveis removidos ou protegidos
+[ ] PDF ou prints do resultado
+[ ] Vídeo curto explicando uso
+[ ] Lista de limitações e próximos passos
+[ ] Pedido de depoimento e autorização de case</code></pre>
+      <div class="cheat-note">Esse checklist evita retrabalho e transforma entrega técnica em case vendável.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="section-label">03 · Catálogo</div>
+  <h2>SERVIÇOS & PACOTES</h2>
+  <p class="section-desc">Serviços produtizados — escopo fechado, entrega definida. Sem "hora aberta" no início.</p>
+
+  <div class="aviso">
+    <strong>⚠ Realidade de mercado:</strong>
+    <p>Sem case real, você não vende por ticket alto. Os 3 primeiros projetos devem ser abaixo do mercado ou pro bono — o objetivo é gerar depoimento + autorização de divulgação, não lucro. Trate como investimento em portfólio.</p>
+  </div>
+
+  <!-- TABS por nicho -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('todos', event)">Todos os Pacotes</button>
+    <button class="tab-btn" onclick="switchTab('bi', event)">BI & Dashboard</button>
+    <button class="tab-btn" onclick="switchTab('etl', event)">ETL & Pipeline</button>
+    <button class="tab-btn" onclick="switchTab('recorrente', event)">Recorrente</button>
+  </div>
+
+  <div id="tab-todos" class="tab-panel active">
+    <div class="services-grid">
+
+      <!-- STARTER -->
+      <div class="service-card">
+        <span class="service-tier tier-entrada">Entrada · Pro Bono/Validação</span>
+        <div class="service-name">DASHBOARD STARTER</div>
+        <div class="service-tagline">Para comércio, clínica, prestador de serviço</div>
+        <div class="service-price">R$ 0 → R$ 800</div>
+        <div class="service-price-note">GRÁTIS nos 2–3 primeiros · Depois R$ 600–1.200 por projeto</div>
+        <ul class="service-includes">
+          <li>Dashboard Power BI com até 3 páginas</li>
+          <li>Conexão a 1 fonte de dados (Excel, planilha, Google Sheets)</li>
+          <li>4 KPIs definidos com o cliente</li>
+          <li>1 rodada de ajustes incluída</li>
+          <li>Entrega em 7 dias corridos</li>
+          <li>Vídeo de 5 min explicando como usar</li>
+        </ul>
+        <div class="service-excludes">
+          <span>Banco de dados relacional (SQL)</span>
+          <span>Integrações via API</span>
+          <span>Manutenção mensal</span>
+        </div>
+      </div>
+
+      <!-- BI PRO -->
+      <div class="service-card">
+        <span class="service-tier tier-medio">Intermediário</span>
+        <div class="service-name">BI PRO</div>
+        <div class="service-tagline">Para PMEs com dados em múltiplas fontes</div>
+        <div class="service-price">R$ 2.000 – 3.500</div>
+        <div class="service-price-note">Preço fixo por entrega · Prazo: 15–20 dias</div>
+        <ul class="service-includes">
+          <li>Dashboard Power BI com até 6 páginas</li>
+          <li>Modelagem de dados (star schema)</li>
+          <li>Conexão a até 3 fontes (SQL, Excel, API simples)</li>
+          <li>DAX measures customizadas</li>
+          <li>KPIs de vendas, estoque ou financeiro</li>
+          <li>2 rodadas de ajuste + treinamento 1h</li>
+          <li>Documentação do modelo de dados</li>
+        </ul>
+        <div class="service-excludes">
+          <span>ETL automatizado</span>
+          <span>Atualização agendada (cloud)</span>
+        </div>
+      </div>
+
+      <!-- ETL BÁSICO -->
+      <div class="service-card">
+        <span class="service-tier tier-medio">Intermediário</span>
+        <div class="service-name">PIPELINE ETL</div>
+        <div class="service-tagline">Automatiza coleta, limpeza e carga de dados</div>
+        <div class="service-price">R$ 2.500 – 4.000</div>
+        <div class="service-price-note">Escopo fechado · Prazo: 2–4 semanas</div>
+        <ul class="service-includes">
+          <li>Script Python para extração de 1–2 fontes</li>
+          <li>Limpeza e transformação dos dados</li>
+          <li>Carga para PostgreSQL ou Google Sheets</li>
+          <li>Agendamento automático (cron/GitHub Actions)</li>
+          <li>Documentação técnica básica</li>
+          <li>1 mês de suporte via mensagem</li>
+        </ul>
+        <div class="service-excludes">
+          <span>Infraestrutura cloud (AWS/GCP)</span>
+          <span>Orquestração (Airflow/Prefect)</span>
+          <span>Mais de 3 fontes de dados</span>
+        </div>
+      </div>
+
+      <!-- ANÁLISE PONTUAL -->
+      <div class="service-card">
+        <span class="service-tier tier-entrada">Entrada</span>
+        <div class="service-name">ANÁLISE PONTUAL</div>
+        <div class="service-tagline">Responde uma pergunta de negócio com dados</div>
+        <div class="service-price">R$ 500 – 1.200</div>
+        <div class="service-price-note">Por entrega · Prazo: 3–5 dias</div>
+        <ul class="service-includes">
+          <li>Análise exploratória (Python/Pandas ou SQL)</li>
+          <li>Relatório em PDF ou Notion</li>
+          <li>3–5 insights acionáveis</li>
+          <li>Gráficos prontos para apresentação</li>
+          <li>Reunião de apresentação de 30 min</li>
+        </ul>
+        <div class="service-excludes">
+          <span>Dashboard interativo</span>
+          <span>Modelo preditivo</span>
+        </div>
+      </div>
+
+      <!-- RETAINER BI -->
+      <div class="service-card">
+        <span class="service-tier tier-recorrente">Recorrente · MRR</span>
+        <div class="service-name">RETAINER BI</div>
+        <div class="service-tagline">Manutenção e evolução do dashboard mensal</div>
+        <div class="service-price">R$ 800 – 1.500/mês</div>
+        <div class="service-price-note">Contrato mínimo 3 meses · Renovação automática</div>
+        <ul class="service-includes">
+          <li>Atualização dos dados (até 4x/mês)</li>
+          <li>Até 3 novas visões ou métricas por mês</li>
+          <li>Suporte via WhatsApp em horário comercial</li>
+          <li>Relatório mensal de insights (PDF)</li>
+          <li>Call mensal de 30 min</li>
+        </ul>
+        <div class="service-excludes">
+          <span>Novas fontes de dados (cobrado à parte)</span>
+          <span>Reestruturação completa do modelo</span>
+        </div>
+      </div>
+
+      <!-- RETAINER DATA -->
+      <div class="service-card">
+        <span class="service-tier tier-recorrente">Recorrente · MRR</span>
+        <div class="service-name">DADOS UNDER CONTROL</div>
+        <div class="service-tagline">Analista de dados "terceirizado" para PME</div>
+        <div class="service-price">R$ 2.000 – 4.000/mês</div>
+        <div class="service-price-note">Contrato 6 meses · Ideal para 2º+ cliente</div>
+        <ul class="service-includes">
+          <li>20h/mês dedicadas ao cliente</li>
+          <li>Dashboard + pipeline mantidos</li>
+          <li>Análises ad-hoc sob demanda</li>
+          <li>Reunião quinzenal com gestão</li>
+          <li>Acesso a dados em tempo real (quando viável)</li>
+          <li>Roadmap de dados trimestral</li>
+        </ul>
+        <div class="service-excludes">
+          <span>Mais de 20h/mês sem renegociação</span>
+          <span>Desenvolvimento de produto/SaaS</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="tab-bi" class="tab-panel">
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-tier tier-entrada">Entrada</span>
+        <div class="service-name">DASHBOARD STARTER</div>
+        <div class="service-tagline">Para comércio, clínica, prestador de serviço</div>
+        <div class="service-price">R$ 0 → R$ 800</div>
+        <div class="service-price-note">GRÁTIS nos primeiros · Depois R$ 600–1.200</div>
+        <ul class="service-includes">
+          <li>Power BI até 3 páginas</li>
+          <li>1 fonte de dados (Excel/Sheets)</li>
+          <li>4 KPIs + 1 ajuste + vídeo explicativo</li>
+          <li>Entrega em 7 dias</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="service-tier tier-medio">Intermediário</span>
+        <div class="service-name">BI PRO</div>
+        <div class="service-tagline">PMEs com múltiplas fontes de dados</div>
+        <div class="service-price">R$ 2.000 – 3.500</div>
+        <div class="service-price-note">Preço fixo · 15–20 dias</div>
+        <ul class="service-includes">
+          <li>Power BI até 6 páginas + DAX</li>
+          <li>3 fontes de dados + star schema</li>
+          <li>Treinamento 1h + documentação</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="service-tier tier-recorrente">Recorrente</span>
+        <div class="service-name">RETAINER BI</div>
+        <div class="service-tagline">Manutenção mensal do dashboard</div>
+        <div class="service-price">R$ 800 – 1.500/mês</div>
+        <div class="service-price-note">Mín. 3 meses</div>
+        <ul class="service-includes">
+          <li>4 atualizações/mês + suporte WhatsApp</li>
+          <li>3 novas visões/mês + call mensal</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-etl" class="tab-panel">
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-tier tier-entrada">Entrada</span>
+        <div class="service-name">ANÁLISE PONTUAL</div>
+        <div class="service-tagline">Resposta a uma pergunta de negócio</div>
+        <div class="service-price">R$ 500 – 1.200</div>
+        <div class="service-price-note">3–5 dias</div>
+        <ul class="service-includes">
+          <li>EDA (Python/SQL) + relatório PDF</li>
+          <li>3–5 insights + reunião 30 min</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="service-tier tier-medio">Intermediário</span>
+        <div class="service-name">PIPELINE ETL</div>
+        <div class="service-tagline">Automatização de coleta e carga</div>
+        <div class="service-price">R$ 2.500 – 4.000</div>
+        <div class="service-price-note">2–4 semanas</div>
+        <ul class="service-includes">
+          <li>Python ETL + agendamento automático</li>
+          <li>Carga para PostgreSQL/Sheets</li>
+          <li>1 mês de suporte</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-recorrente" class="tab-panel">
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-tier tier-recorrente">MRR</span>
+        <div class="service-name">RETAINER BI</div>
+        <div class="service-price">R$ 800 – 1.500/mês</div>
+        <div class="service-price-note">Mín. 3 meses</div>
+        <ul class="service-includes">
+          <li>Manutenção + evolução do dashboard</li>
+          <li>Suporte WhatsApp + call mensal</li>
+          <li>Relatório mensal de insights</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="service-tier tier-recorrente">MRR Premium</span>
+        <div class="service-name">DADOS UNDER CONTROL</div>
+        <div class="service-price">R$ 2.000 – 4.000/mês</div>
+        <div class="service-price-note">Mín. 6 meses · Analista dedicado</div>
+        <ul class="service-includes">
+          <li>20h/mês dedicadas + análises ad-hoc</li>
+          <li>Dashboard + pipeline mantidos</li>
+          <li>Reunião quinzenal com gestão</li>
+        </ul>
+      </div>
+    </div>
+    <div class="stat-real mt2">
+      <strong>Dado de mercado (Fiverr 2026):</strong> Retainers de BI no mercado internacional custam US$300–1.500/mês. No Brasil, o ticket é menor mas o cliente é mais acessível sem inglês ou reputação em plataforma.
+    </div>
+  </div>
+
+  <!-- DEMO MOCKUP -->
+  <div class="demo-box mt3">
+    <div class="demo-header">
+      <div class="demo-dots">
+        <div class="demo-dot"></div>
+        <div class="demo-dot"></div>
+        <div class="demo-dot"></div>
+      </div>
+      <div class="demo-title">DASHBOARD STARTER — EXEMPLO MOCKADO · Comércio Varejista</div>
+    </div>
+    <div class="demo-kpis">
+      <div class="demo-kpi">
+        <div class="demo-kpi-value">R$84k</div>
+        <div class="demo-kpi-label">Receita Mês</div>
+      </div>
+      <div class="demo-kpi">
+        <div class="demo-kpi-value">+12%</div>
+        <div class="demo-kpi-label">vs. Mês Ant.</div>
+      </div>
+      <div class="demo-kpi">
+        <div class="demo-kpi-value">347</div>
+        <div class="demo-kpi-label">Pedidos</div>
+      </div>
+      <div class="demo-kpi">
+        <div class="demo-kpi-value">R$242</div>
+        <div class="demo-kpi-label">Ticket Médio</div>
+      </div>
+    </div>
+    <div class="demo-charts">
+      <div class="demo-chart">
+        <div class="demo-chart-label">Receita por semana</div>
+        <div class="bar-chart">
+          <div class="bar" style="height:40%"></div>
+          <div class="bar" style="height:65%"></div>
+          <div class="bar" style="height:55%"></div>
+          <div class="bar" style="height:80%"></div>
+          <div class="bar" style="height:70%"></div>
+          <div class="bar" style="height:90%"></div>
+          <div class="bar" style="height:75%"></div>
+          <div class="bar" style="height:100%"></div>
+        </div>
+      </div>
+      <div class="demo-chart">
+        <div class="demo-chart-label">Categorias</div>
+        <div class="pie-chart">
+          <div class="pie-visual"></div>
+          <div class="pie-legend">
+            <div class="pie-item"><div class="pie-dot" style="background:var(--accent)"></div>Roupas 45%</div>
+            <div class="pie-item"><div class="pie-dot" style="background:var(--accent2)"></div>Calçados 27%</div>
+            <div class="pie-item"><div class="pie-dot" style="background:#555"></div>Outros 28%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="muted mono mt1" style="font-size:0.7rem; text-align:center">↑ Este é o tipo de entrega do pacote Starter. Dados mockados. Construa este demo com dados fictícios para mostrar ao cliente antes de fechar.</p>
+</section>
+
+<!-- MODELO DE NEGÓCIO -->
+<section id="modelo">
+  <div class="section-label">04 · Modelo</div>
+  <h2>COMO O NEGÓCIO FUNCIONA</h2>
+  <p class="section-desc">Sequência de produto — de onde vem a receita e como ela cresce.</p>
+
+  <div class="modelo-grid">
+    <div class="modelo-card">
+      <div class="modelo-num">01</div>
+      <h3>ENTRADA VIA PROJETO ÚNICO</h3>
+      <p>Ticket baixo (R$0–R$1.2k), escopo fechado, entrega rápida. Objetivo não é lucro — é gerar case, depoimento e relacionamento com o cliente.</p>
+      <ul>
+        <li>Dashboard Starter ou Análise Pontual</li>
+        <li>Pro bono nos 2–3 primeiros</li>
+        <li>Sempre documentar resultado (antes/depois)</li>
+        <li>Pedir autorização para usar como portfólio</li>
+      </ul>
+    </div>
+    <div class="modelo-card">
+      <div class="modelo-num">02</div>
+      <h3>UPSELL PARA BI PRO / ETL</h3>
+      <p>Depois de entregar o Starter com qualidade, o cliente naturalmente quer mais. Aí você apresenta o BI Pro ou Pipeline — projeto maior, ticket maior.</p>
+      <ul>
+        <li>Ticket médio: R$2.000–3.500</li>
+        <li>Só faz sentido depois de ter o relacionamento</li>
+        <li>Taxa de conversão realista: 30–40% do cliente Starter</li>
+      </ul>
+    </div>
+    <div class="modelo-card">
+      <div class="modelo-num">03</div>
+      <h3>CONVERSÃO PARA RETAINER</h3>
+      <p>A pergunta certa ao finalizar qualquer projeto: <em>"Quem vai manter isso atualizado?"</em> — A maioria das PMEs não tem resposta. Você oferece o Retainer BI.</p>
+      <ul>
+        <li>MRR de R$800–1.500/mês por cliente</li>
+        <li>2 clientes em retainer = R$1.600–3.000/mês estável</li>
+        <li>Combinar com emprego/estágio no início</li>
+      </ul>
+    </div>
+    <div class="modelo-card">
+      <div class="modelo-num">04</div>
+      <h3>ESCALA: MAIS CLIENTES OU MAIOR TICKET</h3>
+      <p>Dois caminhos após validar o modelo. Não tente os dois ao mesmo tempo.</p>
+      <ul>
+        <li><strong>Mais clientes:</strong> volume, processo, template</li>
+        <li><strong>Maior ticket:</strong> nicho específico, especialização, "Dados Under Control"</li>
+        <li>No ano 2+, avaliar contratar estagiário para parte operacional</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="stat-real">
+    <strong>Matematicamente:</strong> 3 clientes em retainer de R$1.200/mês + 1 projeto BI Pro/mês (R$2.500) = R$6.100/mês bruto. Isso é atingível no mês 6–9 com execução consistente.
+  </div>
+</section>
+
+<!-- AQUISIÇÃO -->
+<section id="aquisicao">
+  <div class="section-label">05 · Canais</div>
+  <h2>COMO CONSEGUIR CLIENTES</h2>
+  <p class="section-desc">Sem rede de indicações. Do zero. Estratégias ordenadas por esforço e taxa de retorno real.</p>
+
+  <div class="stat-real">
+    <strong>Dado real (2025):</strong> Cold email tem taxa de resposta de ~5%. LinkedIn outreach bem feito chega a 28–48% de resposta positiva. Conteúdo que resolve dor específica converte mais que qualquer pitch direto.
+  </div>
+
+  <div class="aquisicao-channels">
+
+    <div class="channel-card">
+      <div class="channel-icon">🎯</div>
+      <div class="channel-name">LINKEDIN ORGÂNICO</div>
+      <div class="channel-effort">Canal principal · Médio prazo</div>
+      <p>Um perfil posicionado como "quem resolve problema X" — não CV, não busca de emprego. O mesmo perfil atrai recrutador e cliente. Você não cria dois perfis.</p>
+      <ul class="channel-actions">
+        <li>Headline: "Transformo planilhas caóticas em dashboards que gestores entendem"</li>
+        <li>Post 3x/semana: antes/depois de dado real, erro comum em Excel, insight de setor</li>
+        <li>Comentar em posts de donos de PME antes de abordar</li>
+        <li>Outreach só depois de 2–3 interações no perfil deles</li>
+        <li>Meta: 50–100 conexões novas/semana no nicho-alvo</li>
+      </ul>
+    </div>
+
+    <div class="channel-card">
+      <div class="channel-icon">🔍</div>
+      <div class="channel-name">ABORDAGEM DIRETA</div>
+      <div class="channel-effort">Canal de entrada · Curto prazo</div>
+      <p>Prospecção ativa de pequenos negócios locais (Tiradentes/MG, região). Comércio, clínica, escritório de advocacia, transportadora — qualquer PME que use planilha.</p>
+      <ul class="channel-actions">
+        <li>Listar 20 negócios locais com presença no Google/Instagram</li>
+        <li>Entrar em contato pelo WhatsApp Business ou Instagram</li>
+        <li>Oferta: "Faço um dashboard de vendas grátis em 7 dias"</li>
+        <li>Objetivo: 1 sim em 10 abordagens = 2 cases em 20 abordagens</li>
+        <li>Leva o demo mockado pronto para mostrar o que vai entregar</li>
+      </ul>
+    </div>
+
+    <div class="channel-card">
+      <div class="channel-icon">🌐</div>
+      <div class="channel-name">PLATAFORMAS FREELANCE</div>
+      <div class="channel-effort">Canal paralelo · Lento no início</div>
+      <p>Upwork e 99Freelas. Demora para decolar sem avaliações, mas é canal de volume. Upwork vale mais para longo prazo (clientes internacionais em inglês).</p>
+      <ul class="channel-actions">
+        <li>99Freelas: start em BR, projetos de R$300–800 para ganhar avaliações</li>
+        <li>Upwork: perfil em inglês, proposta para projetos de US$100–300 no início</li>
+        <li>Não dependa disso nos primeiros 3 meses</li>
+        <li>Use como canal de aprendizado de como clientes descrevem o problema</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="stat-real">
+    <strong>O que não funciona no início:</strong> Cold email em massa (5% de resposta), ADS pagos (CAC alto sem funil validado), criar site antes de ter 1 cliente. Foque em abordagem direta e LinkedIn.
+  </div>
+</section>
+
+<!-- TEMPLATE PROPOSTA -->
+<section id="proposta">
+  <div class="section-label">06 · Template</div>
+  <h2>PROPOSTA COMERCIAL</h2>
+  <p class="section-desc">Copie, adapte e envie. Preencha os campos destacados em verde.</p>
+
+  <div class="proposta-container">
+    <div class="proposta-topbar">
+      <span class="proposta-topbar-label">Template · Dashboard Starter / BI Pro</span>
+      <button class="copy-btn" onclick="copyProposta()">Copiar texto</button>
+    </div>
+    <div class="proposta-body" id="proposta-text">
+
+      <p>Olá, <span class="field">[Nome do contato]</span>!</p>
+
+      <div class="proposta-section">
+        <div class="proposta-section-title">O Problema que Identifiquei</div>
+        <p>Vi que <span class="field">[empresa/negócio]</span> trabalha com <span class="field">[descreva o processo atual: planilhas separadas / dados no papel / sistema X]</span>. Esse modelo dificulta ter uma visão rápida de <span class="field">[KPI relevante: faturamento, estoque, atendimentos]</span> — o que pode levar a decisões baseadas em feeling, não em dado.</p>
+      </div>
+
+      <div class="proposta-section">
+        <div class="proposta-section-title">O que Eu Entrego</div>
+        <p>Sou analista de dados e farei um dashboard em Power BI para <span class="field">[empresa]</span> com foco em <span class="field">[área: vendas / financeiro / operacional]</span>. A entrega inclui:</p>
+        <p style="margin-top:0.8rem; padding-left:1rem; border-left:2px solid var(--border); color:var(--muted)">
+          → Dashboard com <span class="field">[3–6]</span> páginas e os principais KPIs do negócio<br>
+          → Conexão com <span class="field">[Excel / Google Sheets / sistema atual]</span><br>
+          → <span class="field">[1–2]</span> rodada de ajustes após entrega<br>
+          → Vídeo explicativo de 5 minutos sobre como usar<br>
+          → Prazo: <span class="field">[7–15]</span> dias corridos após início
+        </p>
+      </div>
+
+      <div class="proposta-section">
+        <div class="proposta-section-title">Investimento</div>
+        <p>Para este escopo: <span class="field">[R$ 0 (pro bono) / R$ 800 / R$ 2.000]</span>.</p>
+        <p style="margin-top:0.5rem; color:var(--muted); font-size:0.9rem"><em>Nota: estou construindo meu portfólio de cases e por isso ofereço condições especiais para os primeiros clientes. Em troca, peço apenas uma avaliação honesta e autorização para usar os resultados como referência.</em></p>
+      </div>
+
+      <div class="proposta-section">
+        <div class="proposta-section-title">Próximo Passo</div>
+        <p>Posso fazer uma call de 20 minutos esta semana para entender melhor os dados que vocês têm e mostrar um exemplo do que seria entregue. Funciona <span class="field">[dia e horário sugerido]</span>?</p>
+      </div>
+
+      <div class="proposta-section">
+        <p style="color:var(--muted); font-size:0.9rem">Att,<br><span class="field">[Seu nome]</span><br><span class="field">[LinkedIn / portfólio]</span></p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="stat-real mt2">
+    <strong>Dica:</strong> Sempre leve o demo mockado (o exemplo acima) para a call. Cliente visual entende o que vai receber. "Uma imagem vale por mil palavras" é real em vendas de dados — a maioria não sabe o que é um dashboard até ver um.
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+  <div class="section-label">07 · Execução</div>
+  <h2>ROADMAP 90 DIAS</h2>
+  <p class="section-desc">Do básico ao primeiro cliente pagante. Semana a semana — sem etapas em paralelo que não sejam necessárias.</p>
+
+  <div class="roadmap">
+
+    <div class="roadmap-week current">
+      <div class="week-label accent">Semanas 1–2 · AGORA</div>
+      <div class="week-title">ARMAR O ARSENAL</div>
+      <ul class="week-tasks">
+        <li>Construir 1 dashboard demo (dados mockados de comércio varejista)</li>
+        <li>Construir 1 dashboard demo (dados mockados de clínica/saúde)</li>
+        <li>Subir os demos no GitHub + portfólio</li>
+        <li>Reescrever headline do LinkedIn → foco em entrega, não em busca de emprego</li>
+        <li>Listar 30 negócios locais para abordar (Google Maps + Instagram)</li>
+      </ul>
+    </div>
+
+    <div class="roadmap-week">
+      <div class="week-label">Semanas 3–4</div>
+      <div class="week-title">PRIMEIRAS ABORDAGENS</div>
+      <ul class="week-tasks">
+        <li>Abordar 10 negócios locais com oferta pro bono</li>
+        <li>Começar 3x/semana no LinkedIn (post tipo: "erro comum em planilha de vendas")</li>
+        <li>Criar perfil no 99Freelas e mandar 5 propostas (projetos pequenos)</li>
+        <li>Meta: fechar 1 projeto pro bono</li>
+      </ul>
+    </div>
+
+    <div class="roadmap-week">
+      <div class="week-label">Semanas 5–6</div>
+      <div class="week-title">ENTREGAR COM QUALIDADE</div>
+      <ul class="week-tasks">
+        <li>Executar o projeto pro bono com excelência (prazo + detalhe)</li>
+        <li>Documentar antes/depois em print e texto</li>
+        <li>Pedir depoimento por escrito e autorização de uso</li>
+        <li>Continuar abordagens: mais 10 negócios</li>
+      </ul>
+    </div>
+
+    <div class="roadmap-week">
+      <div class="week-label">Semanas 7–8</div>
+      <div class="week-title">USAR O CASE</div>
+      <ul class="week-tasks">
+        <li>Publicar case no LinkedIn (antes → solução → resultado)</li>
+        <li>Atualizar portfólio com o case real</li>
+        <li>Fechar 2º projeto (desta vez cobrado: R$500–800)</li>
+        <li>Abordar 10 novos negócios com o case pronto</li>
+      </ul>
+    </div>
+
+    <div class="roadmap-week">
+      <div class="week-label">Semanas 9–10</div>
+      <div class="week-title">CONVERTER PARA RECORRENTE</div>
+      <ul class="week-tasks">
+        <li>Apresentar Retainer BI para cliente do 1º projeto</li>
+        <li>Fechar pelo menos 1 retainer (R$800–1.200/mês)</li>
+        <li>Fechar 1 projeto de ticket médio (R$1.500–2.500)</li>
+        <li>Registrar como MEI se ainda não tiver</li>
+      </ul>
+    </div>
+
+    <div class="roadmap-week">
+      <div class="week-label">Semanas 11–12 · Mês 3</div>
+      <div class="week-title">AVALIAR E AJUSTAR</div>
+      <ul class="week-tasks">
+        <li>Revisar: qual canal trouxe cliente? dobrar nele</li>
+        <li>Meta de renda: R$1.500–3.000 (paralelo ao estágio)</li>
+        <li>Definir nicho de aprofundamento (varejo? saúde? agro?)</li>
+        <li>Avaliar Upwork se inglês estiver pronto</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJEÇÃO DE RENDA -->
+<section id="renda">
+  <div class="section-label">08 · Projeção</div>
+  <h2>RENDA PROJETADA</h2>
+  <p class="section-desc">Cenário realista — não otimista. Baseado em execução consistente, não perfeita.</p>
+
+  <div class="renda-grid">
+    <div class="renda-card">
+      <div class="renda-periodo">Mês 1–3 · Validação</div>
+      <div class="renda-valor">R$ 0–3k</div>
+      <div class="renda-composicao">0–2 projetos · 0–1 retainer<br>Foco: case + depoimento</div>
+    </div>
+    <div class="renda-card highlight">
+      <div class="renda-periodo">Mês 4–6 · Tração</div>
+      <div class="renda-valor">R$ 3–6k</div>
+      <div class="renda-composicao">1–2 projetos/mês + 1–2 retainers<br>+ estágio/emprego</div>
+    </div>
+    <div class="renda-card">
+      <div class="renda-periodo">Mês 7–12 · Escala</div>
+      <div class="renda-valor">R$ 6–12k</div>
+      <div class="renda-composicao">2–3 retainers + projetos maiores<br>Pipeline ETL em ticket alto</div>
+    </div>
+  </div>
+
+  <div class="renda-aviso">
+    ⚠ Estes números assumem 8–12h/semana dedicadas à consultoria em paralelo ao emprego. Sem consistência nas abordagens, o mês 3 vai parecer igual ao mês 1.
+  </div>
+
+  <div class="stat-real mt2">
+    <strong>O math de sustentabilidade:</strong> 3 clientes em retainer de R$1.200 (R$3.600) + 1 projeto BI Pro/mês (R$2.500) = <strong>R$6.100/mês bruto</strong>. Descontando MEI + custos: ~R$5.200 líquido. Isso mais estágio/emprego cobre o necessário e ainda sobra para crescer. É atingível no mês 6–9.
+  </div>
+
+  <div class="modelo-grid mt3">
+    <div class="modelo-card">
+      <div class="modelo-num">→</div>
+      <h3>ANO 2–3: DECISÃO BINÁRIA</h3>
+      <p>Neste ponto você escolhe uma rota — não dá para fazer as duas bem:</p>
+      <ul>
+        <li><strong>Emprego internacional:</strong> construir stack (dbt, Airflow, AWS) e tentar mercado remoto em USD</li>
+        <li><strong>Agência de dados:</strong> escalar a consultoria, contratar estagiário, ticket de R$5–10k/projeto</li>
+      </ul>
+    </div>
+    <div class="modelo-card">
+      <div class="modelo-num">⚑</div>
+      <h3>RISCO REAL: IA</h3>
+      <p>Serviços de análise simples (EDA básico, limpeza de dados) estão sendo automatizados. O que protege:</p>
+      <ul>
+        <li>Entender o negócio do cliente — IA não faz isso</li>
+        <li>Contexto setorial (varejo/agro/saúde)</li>
+        <li>Relacionamento e confiança com PME</li>
+        <li>Integração de sistemas legados</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+<footer style="text-align:center; padding:2rem; border-top:1px solid var(--border); font-family:'DM Mono',monospace; font-size:0.65rem; color:var(--muted); letter-spacing:0.1em;">
+  PLANO PESSOAL · REVISÃO TRIMESTRAL RECOMENDADA · v1.1 · 2026
+</footer>
+
+<script>
+  // NAV ACTIVE STATE
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 150) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  });
+
+  // SMOOTH SCROLL
+  navLinks.forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // TABS
+  function switchTab(name, evt) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    const target = evt && evt.target ? evt.target : window.event && window.event.target;
+    if (target) target.classList.add('active');
+  }
+
+  function switchTechTab(name, evt) {
+    document.querySelectorAll('.tech-tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tech-tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tech-' + name).classList.add('active');
+    const target = evt && evt.target ? evt.target : window.event && window.event.target;
+    if (target) target.classList.add('active');
+  }
+
+  // COPY PROPOSTA
+  function copyProposta() {
+    const el = document.getElementById('proposta-text');
+    const text = el.innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.querySelector('.copy-btn');
+      btn.textContent = 'Copiado ✓';
+      setTimeout(() => btn.textContent = 'Copiar texto', 2000);
+    });
+  }
+</script>
+
+</body>
+</html>
