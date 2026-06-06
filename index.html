@@ -1348,6 +1348,7 @@
   <div class="nav-brand">DATA·PLAN</div>
   <a href="#mapa" class="active">Mapa</a>
   <a href="#stack">Técnico</a>
+  <a href="#iaops">IA-Ops</a>
   <a href="#colinha">Colinha</a>
   <a href="#operacao">Operação</a>
   <a href="#anticommodity">Anti-commodity</a>
@@ -1356,6 +1357,7 @@
   <a href="#aquisicao">Aquisição</a>
   <a href="#captacao">Captação</a>
   <a href="#proposta">Proposta</a>
+  <a href="#sistema">Sistema</a>
   <a href="#roadmap">Roadmap 90d</a>
   <a href="#renda">Renda</a>
 </nav>
@@ -1734,9 +1736,192 @@
   </div>
 </section>
 
+<!-- IA OPS -->
+<section id="iaops">
+  <div class="section-label">02 · IA-Ops</div>
+  <h2>IA COMO EQUIPE OPERACIONAL</h2>
+  <p class="section-desc">Objetivo: usar Claude Code, GPT/Codex, Cursor e automações para produzir como uma equipe pequena, sem terceirizar julgamento. IA acelera pesquisa, código, documentação, QA e vendas; você valida, decide e assume.</p>
+
+  <div class="stat-real">
+    <strong>Regra-mãe:</strong> nenhuma entrega sai só porque a IA gerou. Todo SQL, DAX, Python, métrica, proposta e insight precisa ser testado, explicado por você e conferido contra a fonte.
+  </div>
+
+  <div class="ops-grid">
+    <div class="ops-card">
+      <h3>ARQUITETO</h3>
+      <p>Use IA para desenhar solução antes de codar.</p>
+      <ul class="ops-list">
+        <li>Transformar briefing em escopo técnico</li>
+        <li>Desenhar modelo fato/dimensão</li>
+        <li>Escolher entre Excel, SQL, API, ETL ou dashboard direto</li>
+        <li>Listar riscos, dependências e perguntas para o cliente</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>DEV DE DADOS</h3>
+      <p>Use Claude Code/Codex/Cursor para acelerar código e transformação.</p>
+      <ul class="ops-list">
+        <li>Gerar scripts Python ETL com logs</li>
+        <li>Escrever SQL, CTEs, joins e validações</li>
+        <li>Criar medidas DAX iniciais</li>
+        <li>Refatorar scripts para ficarem legíveis e reutilizáveis</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>QA / REVISOR</h3>
+      <p>Use outra conversa/modelo para criticar a solução.</p>
+      <ul class="ops-list">
+        <li>Procurar duplicidade, nulos, datas quebradas e cálculo frágil</li>
+        <li>Comparar resultado do dashboard com SQL/Excel</li>
+        <li>Pedir teste de casos extremos</li>
+        <li>Gerar checklist de aceite antes da entrega</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>DOCUMENTADOR</h3>
+      <p>Use IA para transformar trabalho técnico em ativo vendável.</p>
+      <ul class="ops-list">
+        <li>README, dicionário de dados e changelog</li>
+        <li>Resumo executivo para cliente</li>
+        <li>Roteiro do vídeo de entrega</li>
+        <li>Case público anonimizado: problema, solução, resultado</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>SDR / VENDAS</h3>
+      <p>Use IA para multiplicar pesquisa e personalização, não para mandar spam.</p>
+      <ul class="ops-list">
+        <li>Pesquisar empresa, decisor e dor provável</li>
+        <li>Gerar 3 variações de mensagem por nicho</li>
+        <li>Preparar respostas para objeções</li>
+        <li>Resumir calls e criar follow-up com próximos passos</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>TUTOR</h3>
+      <p>Use IA para acelerar seu aprendizado enquanto entrega.</p>
+      <ul class="ops-list">
+        <li>Explicar cada linha de código gerada</li>
+        <li>Criar exercícios parecidos com o projeto real</li>
+        <li>Simular entrevista técnica e reunião em inglês</li>
+        <li>Montar flashcards de SQL, DAX, dbt e arquitetura</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>FLUXO IA-FIRST DE ENTREGA</h3>
+  <table class="ops-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Como funciona</th>
+        <th>Quando usar</th>
+        <th>Risco</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1 · Briefing</td>
+        <td>IA resume call, extrai objetivo, KPIs, fontes, dúvidas e riscos. Você revisa e envia resumo ao cliente.</td>
+        <td>Após toda reunião.</td>
+        <td>Resumo inventado ou promessa que você não fez. Revisar antes de enviar.</td>
+      </tr>
+      <tr>
+        <td>2 · Plano técnico</td>
+        <td>IA propõe arquitetura, tabelas, medidas, scripts e checklist de validação.</td>
+        <td>Antes de começar a construir.</td>
+        <td>Arquitetura bonita demais para um problema simples. Manter escopo mínimo.</td>
+      </tr>
+      <tr>
+        <td>3 · Build</td>
+        <td>Claude/Codex gera SQL/Python/DAX; você roda em dados fake ou amostra, corrige e versiona.</td>
+        <td>Durante ETL, limpeza, modelagem e medidas.</td>
+        <td>Copiar código sem entender. Pedir explicação e refatoração sempre.</td>
+      </tr>
+      <tr>
+        <td>4 · QA</td>
+        <td>Outra conversa de IA age como auditor: procura erro de métrica, duplicidade, edge case e risco de escopo.</td>
+        <td>Antes de mostrar ao cliente.</td>
+        <td>IA também erra. Validar com fonte, SQL e amostra manual.</td>
+      </tr>
+      <tr>
+        <td>5 · Entrega</td>
+        <td>IA gera documentação, roteiro de vídeo, resumo executivo e próximos upsells possíveis.</td>
+        <td>No fechamento do projeto.</td>
+        <td>Texto genérico demais. Ajustar para a dor real do cliente.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>PROMPTS BASE</h3>
+  <div class="cheat-grid">
+    <div class="cheat-card">
+      <h3>PLANO TÉCNICO</h3>
+      <pre><code>Você é um arquiteto de dados sênior. Com base neste briefing, gere:
+1. objetivo de negócio
+2. fontes de dados necessárias
+3. perguntas que faltam
+4. modelo fato/dimensão sugerido
+5. KPIs e regras de cálculo
+6. riscos de escopo
+7. checklist de validação
+
+Briefing:
+[colar resumo da call]</code></pre>
+    </div>
+    <div class="cheat-card">
+      <h3>REVISÃO DE CÓDIGO</h3>
+      <pre><code>Revise este código como se fosse para um cliente real.
+Procure:
+- bug lógico
+- risco de duplicidade
+- dados nulos
+- problemas de performance
+- falta de logs
+- melhorias de legibilidade
+
+Explique o que mudar e por quê.
+
+Código:
+[colar SQL/Python/DAX]</code></pre>
+    </div>
+    <div class="cheat-card">
+      <h3>VALIDAÇÃO DE MÉTRICA</h3>
+      <pre><code>Quero validar esta métrica antes de entregar.
+Me dê:
+1. definição simples
+2. fórmula esperada
+3. testes manuais
+4. possíveis distorções
+5. perguntas para confirmar com o cliente
+
+Métrica:
+[ex: ticket médio, margem, churn, inadimplência]</code></pre>
+    </div>
+    <div class="cheat-card">
+      <h3>FOLLOW-UP COMERCIAL</h3>
+      <pre><code>Transforme este resumo de reunião em follow-up curto.
+Tom: profissional, direto, consultivo.
+Incluir:
+- dor confirmada
+- próximo passo
+- prazo
+- o que preciso do cliente
+- CTA simples
+
+Resumo:
+[colar notas da reunião]</code></pre>
+    </div>
+  </div>
+
+  <div class="stat-real">
+    <strong>Rotina de aprendizado:</strong> toda vez que a IA gerar algo útil, peça "me explique linha a linha", depois tente reproduzir sem olhar. Uma vez por semana, faça um exercício sem IA para testar se você está aprendendo ou só operando ferramenta.
+  </div>
+</section>
+
 <!-- COLINHA TECNICA -->
 <section id="colinha">
-  <div class="section-label">02 · Colinha</div>
+  <div class="section-label">03 · Colinha</div>
   <h2>COLINHA DE ENTREGA</h2>
   <p class="section-desc">Exemplos curtos para copiar, adaptar e transformar em entrega. O padrão é sempre o mesmo: pergunta de negócio, base limpa, modelo simples, métrica confiável, visual claro.</p>
 
@@ -1861,7 +2046,7 @@ Página 3 · Operação
 
 <!-- OPERACAO / CLIENTE -->
 <section id="operacao">
-  <div class="section-label">03 · Operação</div>
+  <div class="section-label">04 · Operação</div>
   <h2>REUNIÃO, DADOS, CUSTOS & ESCALA</h2>
   <p class="section-desc">A parte técnica entrega o dashboard. Esta parte faz o cliente confiar, passar os dados certos, pagar sem susto e continuar depois da primeira entrega.</p>
 
@@ -2115,7 +2300,7 @@ Página 3 · Operação
 
 <!-- ANTI COMMODITY -->
 <section id="anticommodity">
-  <div class="section-label">04 · Anti-commodity</div>
+  <div class="section-label">05 · Anti-commodity</div>
   <h2>COMO NÃO FICAR PRESO EM DASHBOARD</h2>
   <p class="section-desc">BI é porta de entrada. O teto maior está em dado confiável, integração, automação, governança e contexto de negócio. A tela fica barata; a fundação continua cara.</p>
 
@@ -2243,7 +2428,7 @@ Página 3 · Operação
 
 <!-- SERVIÇOS -->
 <section id="servicos">
-  <div class="section-label">05 · Catálogo</div>
+  <div class="section-label">06 · Catálogo</div>
   <h2>SERVIÇOS & PACOTES</h2>
   <p class="section-desc">Serviços produtizados — escopo fechado, entrega definida. Sem "hora aberta" no início.</p>
 
@@ -2552,7 +2737,7 @@ Página 3 · Operação
 
 <!-- MODELO DE NEGÓCIO -->
 <section id="modelo">
-  <div class="section-label">06 · Modelo</div>
+  <div class="section-label">07 · Modelo</div>
   <h2>COMO O NEGÓCIO FUNCIONA</h2>
   <p class="section-desc">Sequência de produto — de onde vem a receita e como ela cresce.</p>
 
@@ -2607,7 +2792,7 @@ Página 3 · Operação
 
 <!-- AQUISIÇÃO -->
 <section id="aquisicao">
-  <div class="section-label">07 · Canais</div>
+  <div class="section-label">08 · Canais</div>
   <h2>AQUISIÇÃO REMOTA</h2>
   <p class="section-desc">O mercado local é limitado. O plano agora prioriza clientes remotos no Brasil e, aos poucos, clientes em inglês. Portfólio digital, prova social e volume consistente substituem presença física.</p>
 
@@ -2709,7 +2894,7 @@ Página 3 · Operação
 
 <!-- MAQUINA DE CAPTACAO -->
 <section id="captacao">
-  <div class="section-label">08 · Máquina</div>
+  <div class="section-label">09 · Máquina</div>
   <h2>CAPTAÇÃO REMOTA SEM VIRAR SPAM</h2>
   <p class="section-desc">A meta é ser agressivo no processo, não genérico na mensagem. IA entra para pesquisar, pontuar, personalizar e acompanhar leads. Você entra para escolher, revisar e vender com contexto.</p>
 
@@ -3053,7 +3238,7 @@ Quer que eu te mande um exemplo de modelo reutilizável?</code></pre>
 
 <!-- TEMPLATE PROPOSTA -->
 <section id="proposta">
-  <div class="section-label">09 · Template</div>
+  <div class="section-label">10 · Template</div>
   <h2>PROPOSTA COMERCIAL</h2>
   <p class="section-desc">Copie, adapte e envie. Preencha os campos destacados em verde.</p>
 
@@ -3106,9 +3291,126 @@ Quer que eu te mande um exemplo de modelo reutilizável?</code></pre>
   </div>
 </section>
 
+<!-- SISTEMA OPERACIONAL -->
+<section id="sistema">
+  <div class="section-label">11 · Sistema</div>
+  <h2>SISTEMA OPERACIONAL DO PROJETO</h2>
+  <p class="section-desc">Use este bloco como trava de segurança. Antes de aceitar cliente, entregar projeto ou revisar estratégia, passe por estes checkpoints. É a parte que evita calote, escopo infinito e execução caótica.</p>
+
+  <div class="ops-grid">
+    <div class="ops-card">
+      <h3>CONTRATO / ACEITE</h3>
+      <ul class="ops-list">
+        <li>Escopo, prazo, preço, forma de pagamento e entregáveis por escrito</li>
+        <li>50% de entrada e 50% antes da entrega final, sempre que possível</li>
+        <li>Limite de revisões: 1 no Starter, 2 no Pro</li>
+        <li>Nova fonte, nova métrica complexa ou mudança de regra = novo escopo</li>
+        <li>Cláusula de confidencialidade e autorização separada para usar case</li>
+      </ul>
+    </div>
+
+    <div class="ops-card">
+      <h3>ENTREGA PONTA A PONTA</h3>
+      <ul class="ops-list">
+        <li>Kickoff: objetivo, usuários, decisão apoiada e fonte dos dados</li>
+        <li>Acesso: planilha, banco, API ou exportação com responsável definido</li>
+        <li>Protótipo: validar layout e KPIs antes de construir tudo</li>
+        <li>Validação: conferir números com cliente antes da entrega final</li>
+        <li>Entrega: arquivo/link, vídeo curto, documentação e próximos passos</li>
+      </ul>
+    </div>
+
+    <div class="ops-card">
+      <h3>QUALIDADE TÉCNICA</h3>
+      <ul class="ops-list">
+        <li>Números batem com a fonte ou diferença está explicada</li>
+        <li>Sem duplicidade, nulos críticos ou datas quebradas sem tratamento</li>
+        <li>Refresh testado com base nova ou cenário simulado</li>
+        <li>DAX/SQL/Python revisado com IA, mas entendido por você</li>
+        <li>Dados sensíveis anonimizados no portfólio e prints públicos</li>
+      </ul>
+    </div>
+
+    <div class="ops-card">
+      <h3>FINANCEIRO / IMPOSTOS</h3>
+      <ul class="ops-list">
+        <li>Registrar receita, imposto estimado, ferramenta, horas e margem por projeto</li>
+        <li>MEI serve no início, mas tem limite anual; ao crescer, avaliar ME + contador</li>
+        <li>Licença Power BI, cloud e infra do cliente devem ser pagas pelo cliente</li>
+        <li>Guardar reserva para imposto, inadimplência e meses fracos</li>
+        <li>Se margem/hora cair, subir preço ou cortar oferta</li>
+      </ul>
+    </div>
+
+    <div class="ops-card">
+      <h3>CORPORATIVO + INGLÊS</h3>
+      <ul class="ops-list">
+        <li>Vagas-alvo: Analista BI Jr, Dados Jr, MIS, Controladoria BI, Analytics Engineer Jr</li>
+        <li>Todo projeto real vira item de currículo: problema, stack, resultado, decisão</li>
+        <li>LinkedIn deve servir para recrutador e cliente, sem parecer desesperado</li>
+        <li>Treinar 2 calls em inglês/semana com IA: discovery, proposta e objeções</li>
+        <li>Meta: conseguir explicar seus projetos sem ler script</li>
+      </ul>
+    </div>
+
+    <div class="ops-card">
+      <h3>REVISÃO TRIMESTRAL</h3>
+      <ul class="ops-list">
+        <li>Qual canal trouxe resposta, call, proposta e cliente?</li>
+        <li>Qual nicho teve maior ticket, menor dor e melhor margem?</li>
+        <li>Qual serviço deu mais trabalho do que dinheiro?</li>
+        <li>Qual skill destrava próximo ticket: inglês, SQL, dbt, cloud, vendas?</li>
+        <li>Cortar 1 coisa que não funcionou e dobrar 1 coisa que funcionou</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>CHECKLIST ANTES DE COMEÇAR PROJETO</h3>
+  <table class="ops-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Como funciona</th>
+        <th>Quando usar</th>
+        <th>Risco</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Dados</td>
+        <td>Cliente enviou amostra real ou confirmou fonte, responsável, acesso e frequência de atualização.</td>
+        <td>Antes de fechar escopo final.</td>
+        <td>Sem ver dado, você pode precificar uma bomba.</td>
+      </tr>
+      <tr>
+        <td>Decisor</td>
+        <td>Existe uma pessoa que aprova número, layout, pagamento e próximos passos.</td>
+        <td>Antes da primeira entrega parcial.</td>
+        <td>Sem decisor, projeto fica em loop de opinião.</td>
+      </tr>
+      <tr>
+        <td>Pagamento</td>
+        <td>Entrada paga ou aceite formal por escrito com milestone claro.</td>
+        <td>Antes de abrir Power BI/código para valer.</td>
+        <td>Trabalhar sem entrada aumenta risco de calote e desvalorização.</td>
+      </tr>
+      <tr>
+        <td>Uso</td>
+        <td>Cliente sabe quem vai usar, com qual frequência e para tomar qual decisão.</td>
+        <td>Antes de desenhar dashboard.</td>
+        <td>Dashboard sem ritual de uso vira enfeite.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="stat-real">
+    <strong>Regra de proteção:</strong> se o cliente não envia dados, não define decisor ou não aceita escopo por escrito, não é projeto; é risco disfarçado de oportunidade.
+  </div>
+</section>
+
 <!-- ROADMAP -->
 <section id="roadmap">
-  <div class="section-label">10 · Execução</div>
+  <div class="section-label">12 · Execução</div>
   <h2>ROADMAP 90 DIAS</h2>
   <p class="section-desc">Do básico ao primeiro cliente pagante. Semana a semana — sem etapas em paralelo que não sejam necessárias.</p>
 
@@ -3191,7 +3493,7 @@ Quer que eu te mande um exemplo de modelo reutilizável?</code></pre>
 
 <!-- PROJEÇÃO DE RENDA -->
 <section id="renda">
-  <div class="section-label">11 · Projeção</div>
+  <div class="section-label">13 · Projeção</div>
   <h2>RENDA PROJETADA</h2>
   <p class="section-desc">Cenário realista para carreira corporativa + projeto remoto de lado. Remoto tende a demorar mais para confiar, mas escala melhor quando há reviews, inglês e nicho.</p>
 
