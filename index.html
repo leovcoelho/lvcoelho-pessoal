@@ -1350,9 +1350,11 @@
   <a href="#stack">Técnico</a>
   <a href="#colinha">Colinha</a>
   <a href="#operacao">Operação</a>
+  <a href="#anticommodity">Anti-commodity</a>
   <a href="#servicos">Serviços</a>
   <a href="#modelo">Modelo</a>
   <a href="#aquisicao">Aquisição</a>
+  <a href="#captacao">Captação</a>
   <a href="#proposta">Proposta</a>
   <a href="#roadmap">Roadmap 90d</a>
   <a href="#renda">Renda</a>
@@ -1403,7 +1405,7 @@
       <ul>
         <li>Serviços & pacotes: o que vender e o que excluir</li>
         <li>Modelo de negócio: entrada, upsell e recorrência</li>
-        <li>Aquisição: LinkedIn, abordagem direta e plataformas</li>
+        <li>Aquisição remota: LinkedIn, plataformas, comunidades e outbound digital</li>
         <li>Proposta: texto pronto para mandar ao cliente</li>
         <li>Roadmap e renda: metas de execução e revisão</li>
       </ul>
@@ -1494,6 +1496,40 @@
       </tr>
     </tbody>
   </table>
+
+  <h3>EVOLUÇÃO PARA TICKET ALTO</h3>
+  <div class="ops-grid">
+    <div class="ops-card">
+      <h3>MESES 1–4 · BASE VENDÁVEL</h3>
+      <p>Não pule essa fase. Ela gera os primeiros cases e dinheiro.</p>
+      <ul class="ops-list">
+        <li>Power BI, Power Query, DAX base</li>
+        <li>SQL com JOIN, CTE, window function</li>
+        <li>Python ETL simples com pandas/requests</li>
+        <li>GitHub com README e prints</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>MESES 5–12 · ANALYTICS ENGINEERING</h3>
+      <p>Começa a transição anti-commodity: você constrói a fundação, não só a tela.</p>
+      <ul class="ops-list">
+        <li>dbt básico: models, tests, docs</li>
+        <li>BigQuery, Snowflake ou SQL Server cloud</li>
+        <li>Modelagem dimensional e camada semântica</li>
+        <li>Testes de qualidade e documentação técnica</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>ANO 2+ · ARQUITETURA LEVE</h3>
+      <p>Degrau para projetos de R$8k–20k, retainer alto ou vaga remota melhor.</p>
+      <ul class="ops-list">
+        <li>Airflow/Prefect para orquestração</li>
+        <li>CI/CD simples para projetos de dados</li>
+        <li>Controle de custo cloud</li>
+        <li>Arquitetura, governança e segurança de acesso</li>
+      </ul>
+    </div>
+  </div>
 
   <div class="tech-tabs">
     <button class="tech-tab-btn active" onclick="switchTechTab('starter', event)">BI Starter</button>
@@ -2077,9 +2113,137 @@ Página 3 · Operação
   </div>
 </section>
 
+<!-- ANTI COMMODITY -->
+<section id="anticommodity">
+  <div class="section-label">04 · Anti-commodity</div>
+  <h2>COMO NÃO FICAR PRESO EM DASHBOARD</h2>
+  <p class="section-desc">BI é porta de entrada. O teto maior está em dado confiável, integração, automação, governança e contexto de negócio. A tela fica barata; a fundação continua cara.</p>
+
+  <div class="stat-real">
+    <strong>Tese central:</strong> não venda "faço dashboard". Venda "organizo dados financeiros e operacionais para a empresa fechar número, decidir melhor e preparar a base para BI e IA".
+  </div>
+
+  <div class="ops-grid">
+    <div class="ops-card">
+      <h3>1 · DADOS + ERP + FINANCEIRO</h3>
+      <p>Melhor ponte para dinheiro rápido, especialmente com a vantagem familiar em TOTVS/RM/contabilidade.</p>
+      <ul class="ops-list">
+        <li>Extração de dados do ERP</li>
+        <li>DRE gerencial, conciliação, inadimplência e fechamento</li>
+        <li>BI financeiro para diretoria/controladoria</li>
+        <li>Menos glamour, mais dor real e orçamento</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>2 · ANALYTICS ENGINEERING</h3>
+      <p>Você sai de "criador de tela" e vira quem constrói a camada confiável antes do dashboard.</p>
+      <ul class="ops-list">
+        <li>SQL forte, modelagem, dbt, documentação</li>
+        <li>Camada semântica e métricas padronizadas</li>
+        <li>Qualidade de dados e lineage</li>
+        <li>Base mais segura para carreira corporativa em dados</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>3 · AUTOMAÇÃO COM IA</h3>
+      <p>Use IA em fluxo real, não como promessa solta. O dinheiro está em automatizar trabalho repetitivo.</p>
+      <ul class="ops-list">
+        <li>RAG com documentos internos</li>
+        <li>Agentes consultando base aprovada</li>
+        <li>Extração de nota, contrato, chamado e relatório</li>
+        <li>Exige API, segurança, avaliação e governança</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>4 · GOVERNANÇA & QUALIDADE</h3>
+      <p>Quanto mais IA, maior a necessidade de saber se o dado é correto, permitido e auditável.</p>
+      <ul class="ops-list">
+        <li>Dicionário de dados e dono de indicador</li>
+        <li>Regras de qualidade, validação e alerta</li>
+        <li>LGPD, permissão e dado sensível</li>
+        <li>Prepara empresas para BI, IA e auditoria</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>5 · RISCO, FRAUDE & SEGURANÇA</h3>
+      <p>Dados aplicados a risco costumam pagar mais porque erro vira prejuízo direto.</p>
+      <ul class="ops-list">
+        <li>Logs, anomalias, alertas e monitoramento</li>
+        <li>Fraude, crédito, cobrança e compliance</li>
+        <li>Ponte com cybersecurity e auditoria</li>
+        <li>Mais difícil, mas menos comoditizado</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>6 · REVOPS / FINOPS</h3>
+      <p>Dados perto de receita e margem. Bom para projeto lateral porque o valor fica fácil de explicar.</p>
+      <ul class="ops-list">
+        <li>Funil comercial, churn, comissão e forecast</li>
+        <li>Margem, CAC/LTV, cobrança e inadimplência</li>
+        <li>Automação de relatório gerencial</li>
+        <li>Venda consultiva mais forte que "dashboard bonito"</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>STACK DE PROTEÇÃO CONTRA COMMODITY</h3>
+  <table class="ops-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Como funciona</th>
+        <th>Quando usar</th>
+        <th>Risco</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>SQL forte</td>
+        <td>Base para extrair, validar, transformar e conversar com banco/ERP.</td>
+        <td>Sempre. É mais defensável que saber só clicar em ferramenta.</td>
+        <td>Estudar consulta sem contexto de negócio vira exercício vazio.</td>
+      </tr>
+      <tr>
+        <td>Modelagem e camada semântica</td>
+        <td>Define fatos, dimensões, métricas oficiais e regra de cálculo.</td>
+        <td>Quando cliente tem indicadores conflitantes ou várias fontes.</td>
+        <td>Sem alinhamento com negócio, você documenta o erro com elegância.</td>
+      </tr>
+      <tr>
+        <td>Python / ETL</td>
+        <td>Automatiza coleta, limpeza, validação e carga de dados.</td>
+        <td>Quando planilha manual vira gargalo ou quando há API/arquivos recorrentes.</td>
+        <td>Script sem log, sem documentação e sem responsável vira bomba relógio.</td>
+      </tr>
+      <tr>
+        <td>ERP / financeiro básico</td>
+        <td>Entender contas, centro de custo, nota, pedido, recebimento, estoque e fechamento.</td>
+        <td>Para vender projetos que mexem com dinheiro e operação real.</td>
+        <td>Virar consultor funcional puro se você não limitar o posicionamento.</td>
+      </tr>
+      <tr>
+        <td>Governança leve</td>
+        <td>Define dono do dado, regra de qualidade, permissão e rotina de revisão.</td>
+        <td>Antes de IA, retainer ou dashboard usado em decisão importante.</td>
+        <td>Se virar burocracia grande no cliente pequeno, mata a venda.</td>
+      </tr>
+      <tr>
+        <td>IA aplicada</td>
+        <td>RAG, agentes, extração de documentos e automação conectada a dados confiáveis.</td>
+        <td>Depois de ter base limpa, caso de uso claro e risco controlado.</td>
+        <td>Prometer IA antes da fundação de dados gera demo bonita e projeto morto.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="stat-real">
+    <strong>Regra de evolução:</strong> comece com BI porque vende e gera case. Evolua para SQL + ERP/financeiro + automação + governança. Use IA como multiplicador depois que a base estiver confiável.
+  </div>
+</section>
+
 <!-- SERVIÇOS -->
 <section id="servicos">
-  <div class="section-label">04 · Catálogo</div>
+  <div class="section-label">05 · Catálogo</div>
   <h2>SERVIÇOS & PACOTES</h2>
   <p class="section-desc">Serviços produtizados — escopo fechado, entrega definida. Sem "hora aberta" no início.</p>
 
@@ -2388,7 +2552,7 @@ Página 3 · Operação
 
 <!-- MODELO DE NEGÓCIO -->
 <section id="modelo">
-  <div class="section-label">05 · Modelo</div>
+  <div class="section-label">06 · Modelo</div>
   <h2>COMO O NEGÓCIO FUNCIONA</h2>
   <p class="section-desc">Sequência de produto — de onde vem a receita e como ela cresce.</p>
 
@@ -2411,7 +2575,7 @@ Página 3 · Operação
       <ul>
         <li>Ticket médio: R$2.000–3.500</li>
         <li>Só faz sentido depois de ter o relacionamento</li>
-        <li>Taxa de conversão realista: 30–40% do cliente Starter</li>
+        <li>Taxa de conversão inicial: 10–20%; com nicho e cases fortes pode subir para 30%+</li>
       </ul>
     </div>
     <div class="modelo-card">
@@ -2437,73 +2601,459 @@ Página 3 · Operação
   </div>
 
   <div class="stat-real">
-    <strong>Matematicamente:</strong> 3 clientes em retainer de R$1.200/mês + 1 projeto BI Pro/mês (R$2.500) = R$6.100/mês bruto. Isso é atingível no mês 6–9 com execução consistente.
+    <strong>Matematicamente:</strong> 3 clientes em retainer de R$1.200/mês + 1 projeto BI Pro/mês (R$2.500) = R$6.100/mês bruto. No remoto, trate isso como meta de 9–15 meses, não promessa de mês 6.
   </div>
 </section>
 
 <!-- AQUISIÇÃO -->
 <section id="aquisicao">
-  <div class="section-label">06 · Canais</div>
-  <h2>COMO CONSEGUIR CLIENTES</h2>
-  <p class="section-desc">Sem rede de indicações. Do zero. Estratégias ordenadas por esforço e taxa de retorno real.</p>
+  <div class="section-label">07 · Canais</div>
+  <h2>AQUISIÇÃO REMOTA</h2>
+  <p class="section-desc">O mercado local é limitado. O plano agora prioriza clientes remotos no Brasil e, aos poucos, clientes em inglês. Portfólio digital, prova social e volume consistente substituem presença física.</p>
 
   <div class="stat-real">
-    <strong>Dado real (2025):</strong> Cold email tem taxa de resposta de ~5%. LinkedIn outreach bem feito chega a 28–48% de resposta positiva. Conteúdo que resolve dor específica converte mais que qualquer pitch direto.
+    <strong>Regra remota:</strong> IA acelera estudo, proposta e entrega, mas não cria confiança sozinha. Sem case, review, perfil forte e comunicação escrita boa, o cliente remoto não tem motivo para acreditar em você.
   </div>
 
   <div class="aquisicao-channels">
 
     <div class="channel-card">
       <div class="channel-icon">🎯</div>
-      <div class="channel-name">LINKEDIN ORGÂNICO</div>
-      <div class="channel-effort">Canal principal · Médio prazo</div>
-      <p>Um perfil posicionado como "quem resolve problema X" — não CV, não busca de emprego. O mesmo perfil atrai recrutador e cliente. Você não cria dois perfis.</p>
+      <div class="channel-name">LINKEDIN REMOTO</div>
+      <div class="channel-effort">Canal principal · Autoridade + vagas</div>
+      <p>Perfil posicionado para resolver problema de dados, não só procurar emprego. Use português para Brasil e comece a publicar alguns posts em inglês conforme ganhar segurança.</p>
       <ul class="channel-actions">
-        <li>Headline: "Transformo planilhas caóticas em dashboards que gestores entendem"</li>
-        <li>Post 3x/semana: antes/depois de dado real, erro comum em Excel, insight de setor</li>
-        <li>Comentar em posts de donos de PME antes de abordar</li>
-        <li>Outreach só depois de 2–3 interações no perfil deles</li>
-        <li>Meta: 50–100 conexões novas/semana no nicho-alvo</li>
-      </ul>
-    </div>
-
-    <div class="channel-card">
-      <div class="channel-icon">🔍</div>
-      <div class="channel-name">ABORDAGEM DIRETA</div>
-      <div class="channel-effort">Canal de entrada · Curto prazo</div>
-      <p>Prospecção ativa de pequenos negócios locais (Tiradentes/MG, região). Comércio, clínica, escritório de advocacia, transportadora — qualquer PME que use planilha.</p>
-      <ul class="channel-actions">
-        <li>Listar 20 negócios locais com presença no Google/Instagram</li>
-        <li>Entrar em contato pelo WhatsApp Business ou Instagram</li>
-        <li>Oferta: "Faço um dashboard de vendas grátis em 7 dias"</li>
-        <li>Objetivo: 1 sim em 10 abordagens = 2 cases em 20 abordagens</li>
-        <li>Leva o demo mockado pronto para mostrar o que vai entregar</li>
+        <li>Headline: "BI + SQL + automação | Transformo dados de ERP/Excel em indicadores confiáveis"</li>
+        <li>Post 3x/semana: antes/depois, erro comum, mini-case, bastidor técnico com IA validada</li>
+        <li>20 conexões/dia com founders, gestores, controladoria, operações e heads de dados</li>
+        <li>Comentar antes de vender; abordar só com contexto específico</li>
+        <li>Meta: 100 novas conexões qualificadas/semana</li>
       </ul>
     </div>
 
     <div class="channel-card">
       <div class="channel-icon">🌐</div>
       <div class="channel-name">PLATAFORMAS FREELANCE</div>
-      <div class="channel-effort">Canal paralelo · Lento no início</div>
-      <p>Upwork e 99Freelas. Demora para decolar sem avaliações, mas é canal de volume. Upwork vale mais para longo prazo (clientes internacionais em inglês).</p>
+      <div class="channel-effort">Canal de review · Curto prazo</div>
+      <p>Use 99Freelas/Workana para clientes BR e Upwork/Fiverr para construir reputação internacional. No início, o objetivo é review e case, não margem máxima.</p>
       <ul class="channel-actions">
-        <li>99Freelas: start em BR, projetos de R$300–800 para ganhar avaliações</li>
-        <li>Upwork: perfil em inglês, proposta para projetos de US$100–300 no início</li>
-        <li>Não dependa disso nos primeiros 3 meses</li>
-        <li>Use como canal de aprendizado de como clientes descrevem o problema</li>
+        <li>Perfil em inglês no Upwork com 3 demos e escopo claro</li>
+        <li>Primeiros projetos: US$50–300 ou R$300–1.000 para ganhar avaliação</li>
+        <li>10 propostas personalizadas/dia por 30 dias</li>
+        <li>Ofertas: dashboard, limpeza Excel/SQL, ETL simples, relatório financeiro</li>
+        <li>Depois de 5–10 reviews, subir ticket e recusar projeto ruim</li>
+      </ul>
+    </div>
+
+    <div class="channel-card">
+      <div class="channel-icon">✉</div>
+      <div class="channel-name">OUTBOUND DIGITAL</div>
+      <div class="channel-effort">Canal de teste · Nicho + volume</div>
+      <p>Não é spam. É abordagem curta para empresas remotas com dor provável: SaaS, e-commerce, clínicas em rede, escritórios contábeis, operações financeiras e empresas que usam ERP.</p>
+      <ul class="channel-actions">
+        <li>Listar 50 empresas/semana no LinkedIn, Wellfound, Google e comunidades</li>
+        <li>Mensagem com 1 dor específica + 1 demo relevante + call de 15 min</li>
+        <li>Usar IA para personalizar, mas revisar manualmente</li>
+        <li>Meta inicial: 30–50 abordagens/semana, 3–5 conversas, 1 oportunidade real</li>
+        <li>Registrar canal, resposta, objeção e próximo passo em planilha/CRM</li>
       </ul>
     </div>
 
   </div>
 
+  <div class="aquisicao-channels">
+    <div class="channel-card">
+      <div class="channel-icon">🧭</div>
+      <div class="channel-name">COMUNIDADES</div>
+      <div class="channel-effort">Canal de confiança · Médio prazo</div>
+      <p>Comunidade não é lugar para pedir emprego todo dia. É lugar para aparecer ajudando, responder dúvidas e criar reputação técnica.</p>
+      <ul class="channel-actions">
+        <li>Data Hackers, DataTalks.Club, dbt Slack, Reddit, grupos de Power BI/SQL</li>
+        <li>Responder 3 dúvidas/semana com prints, código ou explicação clara</li>
+        <li>Publicar aprendizados de projetos fake e reais anonimizados</li>
+        <li>Conectar com quem interagir de forma genuína</li>
+      </ul>
+    </div>
+
+    <div class="channel-card">
+      <div class="channel-icon">⚙</div>
+      <div class="channel-name">PORTFÓLIO REMOTO</div>
+      <div class="channel-effort">Obrigatório · Prova antes da call</div>
+      <p>Cliente remoto precisa ver evidência antes de confiar. Troque demo local genérico por demos de problemas compráveis online.</p>
+      <ul class="channel-actions">
+        <li>SaaS: churn, MRR, LTV, coortes</li>
+        <li>E-commerce: Shopify fake, margem, estoque, ROAS</li>
+        <li>ERP/financeiro: DRE, inadimplência, conciliação, centro de custo</li>
+        <li>Cada demo com README, prints, arquitetura e vídeo curto</li>
+      </ul>
+    </div>
+
+    <div class="channel-card">
+      <div class="channel-icon">🤖</div>
+      <div class="channel-name">IA COMO COPILOTO</div>
+      <div class="channel-effort">Acelerador · Não terceirize julgamento</div>
+      <p>Use Claude/Codex/Cursor para acelerar SQL, DAX, Python, documentação, proposta e conteúdo. Mas entregue só o que você entende e consegue explicar.</p>
+      <ul class="channel-actions">
+        <li>Gerar datasets fake, scripts, testes e README</li>
+        <li>Revisar DAX/SQL/Python e pedir explicação linha a linha</li>
+        <li>Simular calls em inglês e objeções comerciais</li>
+        <li>Regra: IA rascunha, você valida, testa e assume</li>
+      </ul>
+    </div>
+  </div>
+
   <div class="stat-real">
-    <strong>O que não funciona no início:</strong> Cold email em massa (5% de resposta), ADS pagos (CAC alto sem funil validado), criar site antes de ter 1 cliente. Foque em abordagem direta e LinkedIn.
+    <strong>O que não funciona no remoto:</strong> depender só de post orgânico, mandar proposta genérica, competir por preço com freelancer global, esconder falta de case e prometer stack que você não consegue explicar ao vivo.
+  </div>
+</section>
+
+<!-- MAQUINA DE CAPTACAO -->
+<section id="captacao">
+  <div class="section-label">08 · Máquina</div>
+  <h2>CAPTAÇÃO REMOTA SEM VIRAR SPAM</h2>
+  <p class="section-desc">A meta é ser agressivo no processo, não genérico na mensagem. IA entra para pesquisar, pontuar, personalizar e acompanhar leads. Você entra para escolher, revisar e vender com contexto.</p>
+
+  <div class="stat-real">
+    <strong>Princípio:</strong> para pegar os 10 primeiros clientes, não dependa de sorte. Rode uma máquina semanal: 100 leads pesquisados, 50–80 abordagens personalizadas, 2 follow-ups, CRM atualizado e revisão dos números todo domingo.
+  </div>
+
+  <div class="ops-grid">
+    <div class="ops-card">
+      <h3>O QUE AUTOMATIZAR</h3>
+      <ul class="ops-list">
+        <li>Coleta de empresas em diretórios, Google, LinkedIn manual, Wellfound e comunidades</li>
+        <li>Classificação por nicho, tamanho, provável dor e fit com seus demos</li>
+        <li>Rascunho de mensagem com IA baseado no site/perfil da empresa</li>
+        <li>Follow-up, lembretes, status e métricas em planilha/CRM</li>
+        <li>Geração de variações de assunto, CTA e proposta</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>O QUE NÃO AUTOMATIZAR</h3>
+      <ul class="ops-list">
+        <li>LinkedIn auto-connect, auto-message ou scraping agressivo</li>
+        <li>Disparo igual para milhares de pessoas</li>
+        <li>Enviar e-mail sem opt-out ou sem identificação clara</li>
+        <li>Prometer diagnóstico sem olhar o negócio</li>
+        <li>Deixar IA falar por você sem revisão humana</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>STACK SIMPLES</h3>
+      <ul class="ops-list">
+        <li>Google Sheets/Airtable: CRM e pontuação de leads</li>
+        <li>Claude/GPT/Codex: pesquisa, personalização e objeções</li>
+        <li>Gmail/Workspace: envio controlado no começo</li>
+        <li>Calendly/Google Calendar: agendamento</li>
+        <li>Loom/YouTube privado: vídeo de demo ou análise rápida</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>NICHOS MAIS SUSCETÍVEIS A PAGAR</h3>
+  <table class="ops-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Como funciona</th>
+        <th>Quando usar</th>
+        <th>Risco</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ERP + financeiro/controladoria</td>
+        <td>Empresas com TOTVS/RM/Protheus, SQL, planilhas financeiras, DRE, centro de custo, inadimplência e fechamento.</td>
+        <td>Melhor nicho inicial para você: aproveita vantagem familiar, fica perto do dinheiro e é menos commodity que dashboard genérico.</td>
+        <td>Pode ficar funcional demais. Posicione como dados/BI/automação para ERP, não como consultor TOTVS puro.</td>
+      </tr>
+      <tr>
+        <td>E-commerce médio</td>
+        <td>Vendas, margem, estoque, canal, ROAS, ticket médio, recompra, produtos parados e integração com Shopify/Tiny/Bling/planilhas.</td>
+        <td>Ótimo para remoto e portfólio visual. Dono entende dinheiro rápido.</td>
+        <td>Concorrência alta e muitos clientes pequenos sem orçamento. Filtrar por operação com volume.</td>
+      </tr>
+      <tr>
+        <td>SaaS B2B pequeno</td>
+        <td>MRR, churn, LTV, CAC, cohort, funil, suporte, uso do produto e forecast.</td>
+        <td>Bom para clientes internacionais e LinkedIn em inglês. Alto teto se você aprender o vocabulário.</td>
+        <td>Exige inglês, maturidade de dados e mais concorrência global.</td>
+      </tr>
+      <tr>
+        <td>Clínicas/redes de saúde</td>
+        <td>Agenda, faturamento, glosas, convênios, inadimplência, no-show, produtividade e unidades.</td>
+        <td>Bom ticket quando há várias unidades ou gestão profissional.</td>
+        <td>Dados sensíveis/LGPD. Não pegue sem contrato, permissão e anonimização.</td>
+      </tr>
+      <tr>
+        <td>Agências de marketing/performance</td>
+        <td>Dashboards para clientes finais: mídia, ROAS, leads, funil, CAC, campanhas e relatórios mensais.</td>
+        <td>Bom para fechar rápido e gerar volume de cases.</td>
+        <td>Margem menor, muita urgência e demanda solta. Use pacote fechado.</td>
+      </tr>
+      <tr>
+        <td>BPO financeiro/contábil</td>
+        <td>Empresas que prestam serviço financeiro/contábil e precisam padronizar relatórios para vários clientes.</td>
+        <td>Excelente para recorrência: um cliente pode virar vários dashboards padronizados.</td>
+        <td>Precisa entender confidencialidade e separar dados de cada cliente final.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="stat-real">
+    <strong>Escolha inicial recomendada:</strong> comece com ERP + financeiro/controladoria e mantenha e-commerce/SaaS como demos remotos. O primeiro tem maior chance de pagar bem pela sua vantagem; os outros ampliam mercado remoto.
+  </div>
+
+  <h3>FUNIL SEMANAL DOS 10 PRIMEIROS CLIENTES</h3>
+  <div class="ops-grid">
+    <div class="ops-card">
+      <h3>SEGUNDA · LISTA</h3>
+      <ul class="ops-list">
+        <li>Escolher 1 nicho da semana</li>
+        <li>Coletar 100 leads com site, LinkedIn, contato e evidência de dor</li>
+        <li>Pontuar cada lead de 0 a 10</li>
+        <li>Separar os 50 melhores para abordagem</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>TERÇA–QUINTA · ABORDAGEM</h3>
+      <ul class="ops-list">
+        <li>Enviar 15–25 mensagens/dia no começo</li>
+        <li>Usar 3 variações de mensagem por nicho</li>
+        <li>Enviar vídeo/demo só para lead com fit alto</li>
+        <li>Registrar resposta, objeção e próximo passo</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>SEXTA–DOMINGO · FOLLOW-UP</h3>
+      <ul class="ops-list">
+        <li>Follow-up 1 após 3–5 dias</li>
+        <li>Follow-up 2 após 7–10 dias com insight útil</li>
+        <li>Fechar call de 15–20 min com quem respondeu</li>
+        <li>Revisar taxa de resposta, call e fechamento</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>PONTUAÇÃO DE LEAD</h3>
+  <table class="ops-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Como funciona</th>
+        <th>Quando usar</th>
+        <th>Risco</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Fit de dor</td>
+        <td>Há sinal de planilha, ERP, operação financeira, e-commerce, múltiplas unidades, vaga de dados ou crescimento recente?</td>
+        <td>Dar +0 a +3 pontos.</td>
+        <td>Sem dor visível, a mensagem vira chute.</td>
+      </tr>
+      <tr>
+        <td>Capacidade de pagar</td>
+        <td>Empresa tem equipe, site decente, operação recorrente, tráfego, vagas abertas ou clientes próprios?</td>
+        <td>Dar +0 a +3 pontos.</td>
+        <td>Microcliente sem caixa consome tempo e não vira retainer.</td>
+      </tr>
+      <tr>
+        <td>Acesso ao decisor</td>
+        <td>Você encontrou fundador, gestor financeiro, controller, gerente de operações ou head de dados?</td>
+        <td>Dar +0 a +2 pontos.</td>
+        <td>Contato genérico raramente fecha rápido.</td>
+      </tr>
+      <tr>
+        <td>Prova de contexto</td>
+        <td>Você consegue citar algo real: ferramenta, vaga, campanha, expansão, loja, serviço ou dor provável?</td>
+        <td>Dar +0 a +2 pontos.</td>
+        <td>Sem contexto, parece disparo em massa.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>CRM DE EXPERIMENTOS</h3>
+  <p class="section-desc">Cada mensagem enviada vira dado. O objetivo não é só vender: é descobrir qual nicho, dor, canal, promessa e CTA geram resposta.</p>
+
+  <table class="ops-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Como funciona</th>
+        <th>Quando usar</th>
+        <th>Risco</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Campos obrigatórios</td>
+        <td>Data, empresa, site, nicho, país, tamanho, decisor, canal, fonte do lead, score, dor provável e link da mensagem enviada.</td>
+        <td>Antes de disparar qualquer abordagem.</td>
+        <td>Sem registro, você só "acha" que um canal funciona.</td>
+      </tr>
+      <tr>
+        <td>Mensagem</td>
+        <td>Registrar template usado, variação do assunto, CTA, idioma, nível de personalização e se usou vídeo/demo.</td>
+        <td>Para comparar abordagem curta vs consultiva, PT vs EN, demo vs sem demo.</td>
+        <td>Mudar tudo ao mesmo tempo impede saber o que deu certo.</td>
+      </tr>
+      <tr>
+        <td>Status</td>
+        <td>Novo, enviado, abriu/clicou se mensurável, respondeu, call marcada, proposta enviada, ganho, perdido, follow-up, não contatar.</td>
+        <td>Atualizar no mesmo dia da resposta.</td>
+        <td>Lead esquecido é dinheiro vazando.</td>
+      </tr>
+      <tr>
+        <td>Resultado financeiro</td>
+        <td>Valor proposto, valor fechado, tipo de serviço, horas estimadas, horas reais, margem e chance de retainer.</td>
+        <td>Depois de proposta ou fechamento.</td>
+        <td>Sem medir horas reais, você pode achar que lucrou quando comprou trabalho.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>MÉTRICAS PARA DECIDIR NICHO</h3>
+  <div class="ops-grid">
+    <div class="ops-card">
+      <h3>TOPO DO FUNIL</h3>
+      <ul class="ops-list">
+        <li>Leads coletados por nicho</li>
+        <li>Leads com score 7+ por nicho</li>
+        <li>Mensagens enviadas por canal</li>
+        <li>Taxa de resposta por template</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>MEIO DO FUNIL</h3>
+      <ul class="ops-list">
+        <li>Respostas positivas / mensagens enviadas</li>
+        <li>Calls marcadas / respostas positivas</li>
+        <li>Propostas enviadas / calls feitas</li>
+        <li>Principais objeções por nicho</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>FUNDO DO FUNIL</h3>
+      <ul class="ops-list">
+        <li>Clientes fechados / propostas</li>
+        <li>Ticket médio por nicho</li>
+        <li>Horas reais por entrega</li>
+        <li>Chance de retainer e indicação</li>
+      </ul>
+    </div>
+  </div>
+
+  <pre class="call-script"><code>Decisão semanal:
+- Se um nicho teve 50+ abordagens e 0 respostas: mudar mensagem ou cortar.
+- Se teve respostas, mas não teve call: melhorar CTA e prova.
+- Se teve call, mas não teve proposta: melhorar diagnóstico e oferta.
+- Se teve proposta, mas não fechou: revisar preço, escopo ou urgência.
+- Se fechou com margem boa: dobrar no nicho por mais 2 semanas.</code></pre>
+
+  <h3>CADÊNCIA DE MENSAGENS</h3>
+  <pre class="call-script"><code>D0 · Primeira mensagem
+Curta, contextual, com 1 dor provável e CTA leve.
+
+D3–5 · Follow-up 1
+Adicionar 1 insight, print de demo ou pergunta simples.
+
+D7–10 · Follow-up 2
+Mostrar mini diagnóstico genérico do nicho: "3 indicadores que geralmente faltam em [nicho]".
+
+D14 · Fechamento educado
+"Vou parar por aqui para não insistir. Se fizer sentido no futuro, posso te mandar o exemplo."</code></pre>
+
+  <h3>TEMPLATES POR NICHO</h3>
+  <div class="cheat-grid">
+    <div class="cheat-card">
+      <h3>ERP / FINANCEIRO</h3>
+      <pre><code>Assunto: dados financeiros da [Empresa]
+
+Oi, [Nome]. Vi que a [Empresa] atua com [contexto] e imagino que parte dos números de financeiro/ERP ainda dependa de exportações e planilhas.
+
+Tenho montado uma estrutura simples para transformar dados de ERP/Excel em DRE gerencial, inadimplência, centro de custo e indicadores confiáveis.
+
+Posso te mandar um exemplo visual de como isso ficaria para uma operação parecida?</code></pre>
+    </div>
+    <div class="cheat-card">
+      <h3>E-COMMERCE</h3>
+      <pre><code>Assunto: margem e estoque no [nome da loja]
+
+Oi, [Nome]. Vi a [Empresa] e fiquei curioso se vocês acompanham margem, estoque parado e venda por canal em um lugar só.
+
+Tenho um demo de painel para e-commerce que cruza vendas, produtos, margem e ROAS para mostrar onde há dinheiro preso.
+
+Se fizer sentido, te mando o exemplo e 2 ideias de indicadores para vocês acompanharem.</code></pre>
+    </div>
+    <div class="cheat-card">
+      <h3>SAAS B2B</h3>
+      <pre><code>Subject: quick data idea for [Company]
+
+Hi [Name], I saw [Company] is working on [context].
+
+I build lightweight analytics layers for SaaS teams: MRR, churn, cohorts, activation, support volume and revenue dashboards from messy sources.
+
+I have a short demo with fake SaaS data. Want me to send it over?</code></pre>
+    </div>
+    <div class="cheat-card">
+      <h3>AGÊNCIA / BPO</h3>
+      <pre><code>Assunto: relatórios automáticos para clientes
+
+Oi, [Nome]. Vi que vocês atendem clientes em [área]. Muitas agências/BPOs perdem tempo montando relatório mensal manualmente.
+
+Eu ajudo a padronizar dashboards e relatórios recorrentes para reduzir retrabalho e deixar o cliente vendo os números sozinho.
+
+Quer que eu te mande um exemplo de modelo reutilizável?</code></pre>
+    </div>
+  </div>
+
+  <h3>EVOLUÇÃO DE PREÇO</h3>
+  <table class="ops-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Como funciona</th>
+        <th>Quando usar</th>
+        <th>Risco</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Clientes 1–3</td>
+        <td>Pro bono controlado, R$300–1.000 ou US$50–300. Objetivo: case, review e depoimento.</td>
+        <td>Quando você ainda não tem prova social real.</td>
+        <td>Barato demais sem limite vira exploração. Escopo precisa caber em poucos dias.</td>
+      </tr>
+      <tr>
+        <td>Clientes 4–10</td>
+        <td>R$1.000–3.000 ou US$300–800 por projeto. Começar retainer de R$800–1.500 ou US$300–600.</td>
+        <td>Depois de 2–3 cases e primeiras recomendações.</td>
+        <td>Não ficar preso no preço de review. Subir a cada prova nova.</td>
+      </tr>
+      <tr>
+        <td>Após 10 clientes/cases</td>
+        <td>Projetos de R$3.000–8.000 e retainers de R$1.500–4.000. Vender BI Pro, ETL e dados financeiros.</td>
+        <td>Quando você já sabe estimar escopo e mostrar antes/depois.</td>
+        <td>Se ainda aceitar cliente ruim, sua agenda trava.</td>
+      </tr>
+      <tr>
+        <td>Após R$10k/mês ou 5 retainers</td>
+        <td>Subir para R$5k–15k/projeto, R$3k–6k/mês em retainer, ou buscar contrato remoto maior.</td>
+        <td>Quando o gargalo vira tempo, não falta de oportunidade.</td>
+        <td>Precisa nicho, processo, contrato e talvez apoio operacional.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="stat-real">
+    <strong>Regra anti-spam:</strong> para e-mail, use remetente real, assunto honesto, mensagem relevante e opção de parar contato. Para LinkedIn, evite bots de conexão/mensagem; a plataforma restringe automação e scraping. Agressividade boa é consistência com qualidade, não volume cego.
   </div>
 </section>
 
 <!-- TEMPLATE PROPOSTA -->
 <section id="proposta">
-  <div class="section-label">07 · Template</div>
+  <div class="section-label">09 · Template</div>
   <h2>PROPOSTA COMERCIAL</h2>
   <p class="section-desc">Copie, adapte e envie. Preencha os campos destacados em verde.</p>
 
@@ -2558,7 +3108,7 @@ Página 3 · Operação
 
 <!-- ROADMAP -->
 <section id="roadmap">
-  <div class="section-label">08 · Execução</div>
+  <div class="section-label">10 · Execução</div>
   <h2>ROADMAP 90 DIAS</h2>
   <p class="section-desc">Do básico ao primeiro cliente pagante. Semana a semana — sem etapas em paralelo que não sejam necessárias.</p>
 
@@ -2566,57 +3116,61 @@ Página 3 · Operação
 
     <div class="roadmap-week current">
       <div class="week-label accent">Semanas 1–2 · AGORA</div>
-      <div class="week-title">ARMAR O ARSENAL</div>
+      <div class="week-title">ARMAR O ARSENAL REMOTO</div>
       <ul class="week-tasks">
-        <li>Construir 1 dashboard demo (dados mockados de comércio varejista)</li>
-        <li>Construir 1 dashboard demo (dados mockados de clínica/saúde)</li>
-        <li>Subir os demos no GitHub + portfólio</li>
-        <li>Reescrever headline do LinkedIn → foco em entrega, não em busca de emprego</li>
-        <li>Listar 30 negócios locais para abordar (Google Maps + Instagram)</li>
+        <li>Construir 1 demo SaaS/e-commerce (MRR, churn, LTV, vendas, margem)</li>
+        <li>Construir 1 demo ERP/financeiro (DRE, inadimplência, centro de custo)</li>
+        <li>Subir demos no GitHub/portfólio com README, prints e vídeo curto</li>
+        <li>Reescrever LinkedIn para BI + SQL + automação + dados financeiros/operacionais</li>
+        <li>Criar planilha/CRM simples para registrar propostas, respostas e follow-ups</li>
       </ul>
     </div>
 
     <div class="roadmap-week">
       <div class="week-label">Semanas 3–4</div>
-      <div class="week-title">PRIMEIRAS ABORDAGENS</div>
+      <div class="week-title">DISTRIBUIÇÃO DIGITAL</div>
       <ul class="week-tasks">
-        <li>Abordar 10 negócios locais com oferta pro bono</li>
-        <li>Começar 3x/semana no LinkedIn (post tipo: "erro comum em planilha de vendas")</li>
-        <li>Criar perfil no 99Freelas e mandar 5 propostas (projetos pequenos)</li>
-        <li>Meta: fechar 1 projeto pro bono</li>
+        <li>Criar perfil no Upwork em inglês + 99Freelas/Workana em português</li>
+        <li>Enviar 50 propostas/abordagens personalizadas no total</li>
+        <li>Publicar 3 posts/semana no LinkedIn documentando demos e aprendizados</li>
+        <li>Entrar em 2 comunidades e responder 3 dúvidas úteis</li>
+        <li>Meta: gerar 3 conversas reais, mesmo sem fechar ainda</li>
       </ul>
     </div>
 
     <div class="roadmap-week">
       <div class="week-label">Semanas 5–6</div>
-      <div class="week-title">ENTREGAR COM QUALIDADE</div>
+      <div class="week-title">PRIMEIRO CASE REMOTO</div>
       <ul class="week-tasks">
-        <li>Executar o projeto pro bono com excelência (prazo + detalhe)</li>
-        <li>Documentar antes/depois em print e texto</li>
-        <li>Pedir depoimento por escrito e autorização de uso</li>
-        <li>Continuar abordagens: mais 10 negócios</li>
+        <li>Fechar 1 projeto pro bono, barato ou microprojeto pago (US$50–300 / R$300–1.000)</li>
+        <li>Executar com IA como copiloto, mas validar números, código e escopo manualmente</li>
+        <li>Documentar antes/depois, arquitetura, limitações e decisão de negócio</li>
+        <li>Pedir review público, depoimento ou recomendação LinkedIn</li>
+        <li>Continuar: mais 50 propostas/abordagens</li>
       </ul>
     </div>
 
     <div class="roadmap-week">
       <div class="week-label">Semanas 7–8</div>
-      <div class="week-title">USAR O CASE</div>
+      <div class="week-title">TRANSFORMAR CASE EM PROVA</div>
       <ul class="week-tasks">
-        <li>Publicar case no LinkedIn (antes → solução → resultado)</li>
-        <li>Atualizar portfólio com o case real</li>
-        <li>Fechar 2º projeto (desta vez cobrado: R$500–800)</li>
-        <li>Abordar 10 novos negócios com o case pronto</li>
+        <li>Publicar case no LinkedIn: problema → solução → resultado → lição</li>
+        <li>Atualizar portfólio com case real anonimizado</li>
+        <li>Fechar 2º projeto com preço maior (R$800–1.500 / US$150–500)</li>
+        <li>Testar 2 nichos remotos: e-commerce/SaaS e ERP/financeiro</li>
+        <li>Medir qual nicho responde melhor, não qual parece mais bonito</li>
       </ul>
     </div>
 
     <div class="roadmap-week">
       <div class="week-label">Semanas 9–10</div>
-      <div class="week-title">CONVERTER PARA RECORRENTE</div>
+      <div class="week-title">RECORRÊNCIA E FILTRO</div>
       <ul class="week-tasks">
-        <li>Apresentar Retainer BI para cliente do 1º projeto</li>
-        <li>Fechar pelo menos 1 retainer (R$800–1.200/mês)</li>
-        <li>Fechar 1 projeto de ticket médio (R$1.500–2.500)</li>
-        <li>Registrar como MEI se ainda não tiver</li>
+        <li>Oferecer manutenção mensal para todo projeto entregue</li>
+        <li>Meta: 1 retainer baixo (R$800–1.500/mês ou US$300–600/mês)</li>
+        <li>Criar pacote "Data Analyst as a Service" de 10h/mês</li>
+        <li>Recusar projeto sem acesso a dados, sem responsável ou sem escopo mínimo</li>
+        <li>Registrar como MEI/avaliar formalização se começar a faturar recorrente</li>
       </ul>
     </div>
 
@@ -2624,10 +3178,11 @@ Página 3 · Operação
       <div class="week-label">Semanas 11–12 · Mês 3</div>
       <div class="week-title">AVALIAR E AJUSTAR</div>
       <ul class="week-tasks">
-        <li>Revisar: qual canal trouxe cliente? dobrar nele</li>
-        <li>Meta de renda: R$1.500–3.000 (paralelo ao estágio)</li>
-        <li>Definir nicho de aprofundamento (varejo? saúde? agro?)</li>
-        <li>Avaliar Upwork se inglês estiver pronto</li>
+        <li>Revisar: canal, nicho, proposta, resposta, taxa de call e taxa de fechamento</li>
+        <li>Meta de renda: R$0–3.000; remoto pode demorar mais para decolar, mas tem teto maior</li>
+        <li>Escolher 1 nicho para dobrar nos próximos 90 dias</li>
+        <li>Definir próximos estudos: dbt básico, cloud trial e automação Python</li>
+        <li>Fazer revisão trimestral: cortar o que não respondeu e dobrar no que gerou conversa</li>
       </ul>
     </div>
 
@@ -2636,34 +3191,68 @@ Página 3 · Operação
 
 <!-- PROJEÇÃO DE RENDA -->
 <section id="renda">
-  <div class="section-label">09 · Projeção</div>
+  <div class="section-label">11 · Projeção</div>
   <h2>RENDA PROJETADA</h2>
-  <p class="section-desc">Cenário realista — não otimista. Baseado em execução consistente, não perfeita.</p>
+  <p class="section-desc">Cenário realista para carreira corporativa + projeto remoto de lado. Remoto tende a demorar mais para confiar, mas escala melhor quando há reviews, inglês e nicho.</p>
 
   <div class="renda-grid">
     <div class="renda-card">
-      <div class="renda-periodo">Mês 1–3 · Validação</div>
-      <div class="renda-valor">R$ 0–3k</div>
-      <div class="renda-composicao">0–2 projetos · 0–1 retainer<br>Foco: case + depoimento</div>
+      <div class="renda-periodo">Mês 1–3 · Validação remota</div>
+      <div class="renda-valor">R$ 0–2k</div>
+      <div class="renda-composicao">Demos + microprojetos + reviews<br>Foco: prova social</div>
     </div>
     <div class="renda-card highlight">
-      <div class="renda-periodo">Mês 4–6 · Tração</div>
-      <div class="renda-valor">R$ 3–6k</div>
-      <div class="renda-composicao">1–2 projetos/mês + 1–2 retainers<br>+ estágio/emprego</div>
+      <div class="renda-periodo">Mês 4–6 · Primeira tração</div>
+      <div class="renda-valor">R$ 2–6k</div>
+      <div class="renda-composicao">Projetos BR/remotos + 0–1 retainer<br>+ corporativo/estágio</div>
     </div>
     <div class="renda-card">
-      <div class="renda-periodo">Mês 7–12 · Escala</div>
-      <div class="renda-valor">R$ 6–12k</div>
-      <div class="renda-composicao">2–3 retainers + projetos maiores<br>Pipeline ETL em ticket alto</div>
+      <div class="renda-periodo">Mês 7–12 · Consolidação</div>
+      <div class="renda-valor">R$ 5–12k</div>
+      <div class="renda-composicao">1–3 retainers + projetos maiores<br>SQL/ETL/financeiro</div>
     </div>
   </div>
 
   <div class="renda-aviso">
-    ⚠ Estes números assumem 8–12h/semana dedicadas à consultoria em paralelo ao emprego. Sem consistência nas abordagens, o mês 3 vai parecer igual ao mês 1.
+    ⚠ Estes números assumem 10–15h/semana dedicadas ao projeto lateral, além da carreira corporativa. Se o foco for 100% remoto, espere mais "nãos" no início e maior upside depois.
   </div>
 
   <div class="stat-real mt2">
-    <strong>O math de sustentabilidade:</strong> 3 clientes em retainer de R$1.200 (R$3.600) + 1 projeto BI Pro/mês (R$2.500) = <strong>R$6.100/mês bruto</strong>. Descontando MEI + custos: ~R$5.200 líquido. Isso mais estágio/emprego cobre o necessário e ainda sobra para crescer. É atingível no mês 6–9.
+    <strong>O math de sustentabilidade:</strong> 2 retainers de R$1.500 + 1 projeto de R$3.000 = <strong>R$6.000/mês bruto</strong>. Para R$30k+, o modelo muda: tickets de R$5k–15k, retainers de R$3k–6k, clientes remotos melhores, ou emprego/contrato internacional.
+  </div>
+
+  <h3>MAPA 24 MESES / 5 ANOS</h3>
+  <div class="ops-grid">
+    <div class="ops-card">
+      <h3>ANO 1 · PROVA</h3>
+      <p>Meta: validar habilidade, canal e nicho sem abandonar a carreira corporativa.</p>
+      <ul class="ops-list">
+        <li>5–8 cases públicos ou anonimizados</li>
+        <li>2–3 reviews em plataforma/LinkedIn</li>
+        <li>1 nicho escolhido até mês 6–8</li>
+        <li>Renda lateral alvo: R$5k–12k no fim do ano</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>ANO 2 · TICKET</h3>
+      <p>Meta: deixar de vender dashboard barato e vender solução de dados para um nicho.</p>
+      <ul class="ops-list">
+        <li>Projetos de R$5k–10k</li>
+        <li>Retainers de R$2k–4k</li>
+        <li>Stack: dbt básico, cloud, SQL forte, automações</li>
+        <li>Testar cliente internacional ou PJ remoto melhor</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <h3>ANOS 3–5 · 30K+</h3>
+      <p>Meta: escolher uma rota de escala. Sem isso, o teto solo fica perto do tempo disponível.</p>
+      <ul class="ops-list">
+        <li>Rota emprego: senior/lead/staff remoto ou contrato em USD</li>
+        <li>Rota consultoria: 4–8 retainers altos + freela/assistente</li>
+        <li>Rota produto: template, mini-curso, método ou automação vendável</li>
+        <li>Revisão trimestral obrigatória de canal, nicho, ticket e margem</li>
+      </ul>
+    </div>
   </div>
 
   <div class="modelo-grid mt3">
