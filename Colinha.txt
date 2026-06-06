@@ -1,0 +1,21 @@
+Usa essa colinha no PowerShell, dentro da pasta do repositório:
+
+cd "C:\plano de carreira"
+
+git status
+git add plano-consultoria-dados
+git commit -m "update plano consultoria dados"
+git push
+
+Se quiser subir tudo que mudou no repositório, não só esse arquivo/pasta:
+
+cd "C:\plano de carreira"
+
+git status
+git add .
+git commit -m "update project"
+git push
+
+A mais segura para você é esta:
+
+git add plano-consultoria-dados
